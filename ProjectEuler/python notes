@@ -1,0 +1,48 @@
+dictionary:
+
+I know what is a dictionary
+
+student_to_gpa = dict()
+
+dict['robin'] = 4.01
+
+for name in student_to_gpa:
+
+
+
+set:
+
+set is a mathematical set. you can add or remove elements from it. if you add an element twice, it will be there only one time
+
+books = set()
+
+books.add('cormen')
+books.add('lagrange')
+
+books.remove # maybe
+
+len(books)
+
+if 'cormen' in books:
+	do something
+
+list:
+
+list is an array
+
+books = list()
+books.append('got')
+
+
+for book in books
+
+
+or
+
+for i in xrange(0,len(books))
+
+
+other:
+
+int(x) transforms string x into integer
+str(x) transforms integer x into string 
