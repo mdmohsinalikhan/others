@@ -80,13 +80,13 @@ We need to find values $o_1,o_2,o_3,o_4,o_5$ so that $f(o_1,o_2,o_3,o_4,o_5) - g
 \end{eqnarray*}
 The above linear programming problem can be solved by saving the above problem in a file named \textit{model.lp} and run the command \textit{lp\_solve model.lp}. We get the maximum value of the objective function to be: $154.562$ at the input $x_1 = 1,x_2 = 1,x_3 = 3, x_4 = 2, x_5 = 21$. Feeding this input to $f$ and $g$ we find
 \begin{eqnarray*}
-f(1,1,3,2,25) &=& -7.2667 + 0.3724 + 29.1759 \times 3 - 3.2784 \times 2\\
+f(1,1,3,2,21) &=& -7.2667 + 0.3724 + 29.1759 \times 3 - 3.2784 \times 2\\
 & & + 1.8231 \cdot 21 + 78.2264\\
 &=& 190.5881\\
 g(1,1,3) &=& -5.477 + 4.640 + 4.290 * 3 + 24.343 = 36.376
 \end{eqnarray*}
 
-We can find the value of $F(1,1,3,2,21)$ and $G(1,1,3,2,21)$ by running an experiment to see how good the optimization is.
+We can find the value of $F(1,1,3,2,21)$ and $G(1,1,3)$ by running an experiment to see how good the optimization is.
 
 
 \subsection{$Minimize \text{ } \vert\frac{f}{g}-d\vert$:} We need to find the values $o_1,o_2,o_3,o_4,o_5$ so that $\frac{f(o_1,o_2,o_3,o_4,o_5)}{g(o_1,o_2,o_3)}$ becomes as close as possible to a certain constant $d$. Let us set $d=6$. Then we need to minimize $\frac{f(x_1,x_2,x_3,x_4,x_5)}{g(o_1,o_2,o_3)}-6$. In other words we need to minimize 
@@ -99,7 +99,13 @@ We can find the value of $F(1,1,3,2,21)$ and $G(1,1,3,2,21)$ by running an exper
 & & + 1.8231 \cdot x_5 - 67.8316 \vert
 \end{eqnarray*}
  As a result the linear programming problem looks as follows:
-\textcolor{red}{write the linear programming problem}
+\textcolor{red}{the linear program is written in model1.lp file} 
+the solution is:
+$x_1 = 3.4891, x_2 = 1, x_3 = 1, x_4 = 2, x_5 = 5 $. The optimized value of the linear program is $0$. And
+$f(x_1 = 3.4891, x_2 = 1, x_3 = 1, x_4 = 2, x_5 = 5) = 84.97916$\\
+$g(x_1 = 3.4891, x_2 = 1, x_3 = 1) = 14.1632$
+
+We can find the value of $F(3.4891,1,1,2,5)$ and $G(3.4891,1,1)$ by running an experiment to see how good the optimization is.
 
 \subsection{$Minimize \text{ } \vert f-d_1 \vert + \vert g-d_2 \vert$:} Finding the values $o_1,o_2,o_3,o_4,o_5$ so that $f(o_1,o_2,o_3,o_4,o_5)$ and $g(o_1,o_2,o_3)$  goes as close as possible to constant values $d_1$ and $d_2$ respectively. Let us set $d_1 = 120$ and $d_2 = 24$. We need to minimize
 \begin{eqnarray*}
@@ -109,9 +115,12 @@ We can find the value of $F(1,1,3,2,21)$ and $G(1,1,3,2,21)$ by running an exper
 & = &  \vert -7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4\\
 & & + 1.8231 \cdot x_5 - 41.776 \vert + \vert -5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 0.343 \vert
 \end{eqnarray*}
-So, the linear program looks as follows. \textcolor{red}{write the linear programming problem}
+So, the linear program looks as follows: \textcolor{red}{the linear program is in the file model2.lp}¸
+The optimized value of the linear program is $0$. The value of the variables are $X = 0, Y = 0, x_1 = 2.42593, x_2 = 1, x_3 = 1.93562, x_4 = 2, x_5 = 5$. And \\
+$f(x_1 = 2.42593, x_2 = 1, x_3 = 1.93562, x_4 = 2, x_5 = 5) = 120.0025$\\
+$g(x_1 = 2.42593, x_2 = 1, x_3 = 1.93562) = 23.99999$
 
-
+We can find the value of $F(2.42593, 1, 1.93562, 2, 5)$ and $G(2.42593, 1, 1.93562)$ by running an experiment to see how good the optimization is.
 \end{document}
 
 
