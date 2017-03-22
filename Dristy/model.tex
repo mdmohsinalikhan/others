@@ -17,38 +17,99 @@
 
 \begin{document}
 \maketitle
-
-It has been observed that the device has two outputs $y_1,y_2 \in \mathbb{R}$ which are functions of $5$ variables $x_1,x_2,x_3,x_4,x_5 \in \mathbb{R}$. We are interested to know the values of the variables  $x_1,x_2,x_3,x_4,x_5$ that produce the outputs $y_1,y_2$ which are close to optimal values.
+\section{Linear Modeling and optimization:}
+It has been observed that the device has two positive outputs $y_1,y_2 \in \mathbb{R}$. We have learnt that $y_1$ is a function of $5$ positive variables $x_1,x_2,x_3,x_4,x_5 \in \mathbb{R}$ and we name this function $F$. We also have learnt that $y_2$ is a function of $3$ variables $x_1,x_2,x_3$ and we name this function $G$. However, we don't exactly know the definitions of $F$ and $G$. Nonetheless we can sample these two functions at different input points through experiments as discussed in the previous sections. We have results of $18$ experiments. We are interested to optimize the functions $F$ and $G$. We are interested to optimize the functions in few alternative ways. The candidates are as follows:
+\begin{enumerate}
+\item $Maximize \text{ }F - G$: Finding values $o_1,o_2,o_3,o_4,o_5$ so that $F(o_1,o_2,o_3,o_4,o_5) - G(o_1,o_2,o_3)$ becomes as small as possible.
+\item $Minimize \text{ } \vert\frac{F}{G}-d\vert$: Finding the values $o_1,o_2,o_3,o_4,o_5$ so that $\frac{F(o_1,o_2,o_3,o_4,o_5)}{G(o_1,o_2,o_3)}$ becomes as close as possible to a certain constant $d$
+\item $Minimize \text{ } \vert F-d_1 \vert + \vert G-d_2 \vert$: Finding the values $o_1,o_2,o_3,o_4,o_5$ so that $F(o_1,o_2,o_3,o_4,o_5)$ and $G(o_1,o_2,o_3)$  goes as close as possible to constant values $d_1$ and $d_2$ respectively.
+\end{enumerate}
 \paragraph{}
-Let $f_i:\mathbb{R} \rightarrow \mathbb{R}$ be the function that takes the variable $x_i$ as input while the other input variables $x_{j} \text{ for } j \in [5]\setminus{i}$ are kept at constant values and $f_i(x_i) = y_1$. We define the function $g_i:\mathbb{R} \rightarrow \mathbb{R}$ in the same way so that $g_i(x_i) = y_2$. From the result of the experiments, presented in previous section, it is evident that $f_i$ and  $g_i$ are almost, if not exactly, linear functions.
+Let $f_i:\mathbb{R} \rightarrow \mathbb{R}$ be a function that takes the variable $x$ as input while the other input variables $x_{j} \text{ for } j \in \left\lbrace1,...5\right\rbrace\setminus{i}$ of $F$ are kept at constant values i.e., $f_i(x\vert a_1,...,a_{i-1},x,a_{i+1},...,a_{5}) = F(a_1,...,a_{i-1},x,a_{i+1},...,a_{5})$. We define the function $g_i:\mathbb{R} \rightarrow \mathbb{R}$ in the same way so that $g_i(x\vert a_1,...,a_{i-1},x,a_{i+1},...,a_{5}) = G(a_1,...,a_{i-1},x,a_{i+1},...,a_{5})$. From the result of the experiments, presented in previous section, it is evident that $f_i$ and  $g_i$ are almost, if not exactly, linear functions.
 \paragraph{}
-We are interested to find models $f:\mathbb{R}^5 \rightarrow \mathbb{R}$, $g:\mathbb{R}^5 \rightarrow \mathbb{R}$ where $f(x_1,x_2,x_3,x_4,x_5) = y_1$ and $g(x_1,x_2,x_3,x_4,x_5) = y_2$. We make an educated guess that both $f$ and $g$ are linear. We do not provide an analytical argument to justify the linearity of $f$ and $g$. Instead, we use linear regression on the experimental results. There are $20$ experiments. We randomly choose $15$ experiments and use them as training data to obtain the linear models
+We are interested to find models $f:\mathbb{R}^5 \rightarrow \mathbb{R}$, $g:\mathbb{R}^3 \rightarrow \mathbb{R}$ where $f(x_1,x_2,x_3,x_4,x_5) = G(x_1,x_2,x_3,x_4,x_5)$ and $g(x_1,x_2,x_3) = G(x_1,x_2,x_3)$. We make an educated guess that both $F$ and $G$ are linear. We do not provide an analytical argument to justify the linearity of $F$ and $G$. Instead, we use linear regression on the $18$ experimental results and obtain the linear models
 \begin{eqnarray*}
-f &=& a_1x_1 + a_2x_2 + a_3x_3 + a_4x_4 + a_5x_5\\
-g &=& b_1x_1 + b_2x_2 + b_3x_3 + b_4x_4 + b_5x_5
+f(x_1, x_2, x_3, x_4, x_5) &=& -7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4\\
+& & + 1.8231 \cdot x_5 + 78.2264 \\
+g(x_1, x_2, x_3) &=& -5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 24.343
 \end{eqnarray*}
+For an input $(x_1,x_2,x_3,x_4,x_5)$, the error percentages of the models $f$ and $g$ are $\frac{|f(x_1,x_2,x_3,x_4,x_5)-F(x_1,x_2,x_3,x_4,x_5)|}{F(x_1,x_2,x_3,x_4,x_5)} \times 100$ and $\frac{|g(x_1,x_2,x_3)-G(x_1,x_2,x_3)|}{G(x_1,x_2,x_3)}\times 100$ respectively. We compute the mean, variance, minimum and maximum error percentages of the models $f$ and $g$ over all the $18$ inputs and present in the below table
+
+\begin{center}
+    \begin{tabular}{ | l | l | l | l | l |}
+    \hline 
+		& &\multicolumn{3}{ |c| }{Error percentage} \\
+    \hline
+    Model & Mean & Standard Deviation & Min  & Max\\ \hline
+    $f$ & 2.209766 & 2.480924 & 0.5398369 & 9.525519 \\ \hline
+    $g$ & 1.002286 & 1.329765 & 0.008706377 & 5.115356 \\ \hline
+    \end{tabular}
+\end{center}
+
 \paragraph{}
-If $x_1,x_2,x_3,x_4,x_5,y_1,y_2$ be an experimental result then $\frac{|f(x_1,x_2,x_3,x_4,x_5)-y_1|}{y_1} \times 100$ and $\frac{|f(x_1,x_2,x_3,x_4,x_5)-y_2|}{y_2}\times 100$ are the error percentages of the obtained models $f$ and $g$. We compute the training error of the models using the $15$ experimental results and find that the average training error is around \textcolor{red}{??} percent.  We use the rest of the $5$ experimental results to compute the test error of the obtained linear models. We find the error percentage to be below \textcolor{red}{??} percent in both of the cases of $f$ and $g$.
+We reckon, these error percentages indicate that the underlying functions $F$ and $G$ are fairly linear and the obtained models $f$ and $g$ are fairly good linear approximations of $F$ and $G$. Consequently, we optimize $F$ and $G$ by optimzing $f$ and $g$ respectively. As $F$ and $G$ are not not exactly linear and our obtained models $f$ and $g$ are linear approximations, the optimal values obtained from the models $f$ and $g$ will have some errors comparing to the optimal values of $F$ and $G$. We expect these errors to be similar to the errors of the models.
 \paragraph{}
-We reckon, this error percentages indicate that the underlying models are linear enough and the obtained approximated linear models can be used to find the approximately optimal values of $y_1$ and $y_2$ and also the corresponding inputs $x_1,...,x_5$ that produces outputs $y_1,y_2$. As the underlying models are not not exactly linear and our obtained models are only a linear approximation, the optimal values obtained from the model will have some errors. We expect these errors to be similar to the test errors of the models. In this paper we look forward to find the inputs for which $y_1$ is maximized and $y_2$ is minimized. In other words we look forward to maximize the expression
+As both $f$ and $g$ are linear and all the inputs of both of the functions are positive, the optimization problems are most likely to be representable as a linear programming problem. The linear programming problem would involve $5$ variables. A linear programming problem with $5$ variables is a small instance of a linear programming problem. There exist efficient algorithms, namely, simplex, ellipsoid, etc. for solving linear programming problems. In practice, a linear programming problem can easily be solved by any standard linear programming solver like lp\_solve. 
+\paragraph{}
+Now we present the optimization problems discussed above as s linear programming problems in the following subsections:
+\subsection{$Maximize \text{ }f - g$:}
+We need to find values $o_1,o_2,o_3,o_4,o_5$ so that $f(o_1,o_2,o_3,o_4,o_5) - g(o_1,o_2,o_3)$ becomes as small as possible, i.e., we need to maximize
 \begin{eqnarray*}
-y_1 - y_2 &=& f(x_1,...,x_5) - g(x_1,...,x_5)\\
-&=& (a_1x_1 + a_2x_2 + a_3x_3 + a_4x_4 + a_5x_5) - \\ & &(b_1x_1 + b_2x_2 + b_3x_3 + b_4x_4 + b_5x_5)\\
-&=& (a_1 - b_1)x_1 + (a_2 - b_2)x_2 + (a_3 - b_3)x_3 + (a_4 - b_4)x_4 + (a_5 - b_5)x_5\\
-&=& \sum_{i \in [5]} (a_i-b_i)x_i
+& & f(x_1,x_2,x_3,x_4,x_5) - g(x_1,x_2,x_3)\\
+&=& (-7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4\\
+& & + 1.8231 \cdot x_5 + 78.2264)\\
+& & - (-5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 24.343)\\
+&=& -1.7897 \cdot x_1 - 3.9176 \cdot x_2 + 24.8859 \cdot x_3\\
+& & - 3.2784 \cdot x_4 + 1.8231 \cdot x_5 + 53.8834
 \end{eqnarray*}
 
-We model this maximization problem as a linear programming problem as follows:
+ Consequently the linear programming problem looks as follows
 \begin{eqnarray*}
-\text{ maximize } &:& \sum_{i \in [5]} (a_i-b_i)x_i \\
-\text{ with constraints } &:& 0 < x_i \leq c_i \text{ for } i \in [5]\\
-\end{eqnarray*} 
+\text{max:} & & -1.7897 \cdot x_1 - 3.9176 \cdot x_2 + 24.8859 \cdot x_3 - 3.2784 \cdot x_4 + 1.8231 \cdot x_5 + 53.8834;\\
+\\
+& & x_1 <= 5;\\
+& & x_2 <= 5;\\
+& & x_3 <= 3;\\
+& & x_4 <= 15;\\
+& & x_5 <= 21;\\
+& & x_1 >= 1;\\
+& & x_2 >= 1;\\
+& & x_3 >= 1;\\
+& & x_4 >= 2;\\
+& & x_5 >= 5;\\
+\end{eqnarray*}
+The above linear programming problem can be solved by saving the above problem in a file named \textit{model.lp} and run the command \textit{lp\_solve model.lp}. We get the maximum value of the objective function to be: $154.562$ at the input $x_1 = 1,x_2 = 1,x_3 = 3, x_4 = 2, x_5 = 21$. Feeding this input to $f$ and $g$ we find
+\begin{eqnarray*}
+f(1,1,3,2,25) &=& -7.2667 + 0.3724 + 29.1759 \times 3 - 3.2784 \times 2\\
+& & + 1.8231 \cdot 21 + 78.2264\\
+&=& 190.5881\\
+g(1,1,3) &=& -5.477 + 4.640 + 4.290 * 3 + 24.343 = 36.376
+\end{eqnarray*}
+
+We can find the value of $F(1,1,3,2,21)$ and $G(1,1,3,2,21)$ by running an experiment to see how good the optimization is.
 
 
-This is a fairly small instance of a linear programming problem. There exist efficient algorithms, namely, simplex, ellipsoid, etc. for solving linear programming problems. In practice, being oblivious to the algorithm used, this linear programming problem can easily be solved by any standard linear programming solver like lp\_solve. Let $x_1^{'},x_2^{'},x_3^{'},x_4^{'},x_5^{'}$ be the solution of the above linear programming problem. 
+\subsection{$Minimize \text{ } \vert\frac{f}{g}-d\vert$:} We need to find the values $o_1,o_2,o_3,o_4,o_5$ so that $\frac{f(o_1,o_2,o_3,o_4,o_5)}{g(o_1,o_2,o_3)}$ becomes as close as possible to a certain constant $d$. Let us set $d=6$. Then we need to minimize $\frac{f(x_1,x_2,x_3,x_4,x_5)}{g(o_1,o_2,o_3)}-6$. In other words we need to minimize 
+\begin{eqnarray*}
+& & \vert f(x_1,x_2,x_3,x_4,x_5) - 6 g(x_1,x_2,x_3) \vert\\
+&=& \vert(-7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4\\
+& & + 1.8231 \cdot x_5 + 78.2264)\\
+& & - 6(-5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 24.343)\vert \\
+&=& \vert 25.5953 \cdot x_1 - 27.4675 \cdot x_2 + 3.4358 \cdot x_3 - 3.2784 \cdot x_4\\
+& & + 1.8231 \cdot x_5 - 67.8316 \vert
+\end{eqnarray*}
+ As a result the linear programming problem looks as follows:
+\textcolor{red}{write the linear programming problem}
 
-\paragraph{}
-We run an experiment using these input values and get output $y_1^{'},y_2^{'}$. It can be expected that $\frac{|f(x_1,...,x_5)-y_1^{'}|}{y_1^{'}} \times 100, \frac{|f(x_1,...,x_5)-y_2^{'}|}{y_2^{'}} \times 100$ are approximately equal to the test error of $f$ and $g$ respectively.
+\subsection{$Minimize \text{ } \vert f-d_1 \vert + \vert g-d_2 \vert$:} Finding the values $o_1,o_2,o_3,o_4,o_5$ so that $f(o_1,o_2,o_3,o_4,o_5)$ and $g(o_1,o_2,o_3)$  goes as close as possible to constant values $d_1$ and $d_2$ respectively. Let us set $d_1 = 120$ and $d_2 = 24$. We need to minimize
+\begin{eqnarray*}
+& &\vert f(x_1,x_2,x_3,x_4,x_5)-120 \vert + \vert g(x_1,x_2,x_3)-24 \vert \\ 
+&=& \vert -7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4 + 1.8231 \cdot x_5 + 78.2264 - 120 \vert \\
+& & + \vert -5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 24.343 -24 \vert \\
+& = &  \vert -7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 - 3.2784 \cdot x_4\\
+& & + 1.8231 \cdot x_5 - 41.776 \vert + \vert -5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 0.343 \vert
+\end{eqnarray*}
+So, the linear program looks as follows. \textcolor{red}{write the linear programming problem}
 
 
 \end{document}
