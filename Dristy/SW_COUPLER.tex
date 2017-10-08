@@ -1,0 +1,970 @@
+
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow} %take care, add this line. this is required to merge two cells vertically in a table
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Algorithmic Design of On-chip mm-wave Slow-
+	wave Quadrature Coupler in Silicon Technology}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Dristy~Parveg,~\IEEEmembership{Student Member,~IEEE,}
+        Mikko~Varonen, Denizhan~Karaca, Mohsin Khan, Ali~Vahdati,
+        and~Kari~Halonen,~\IEEEmembership{Member,~IEEE}% <-this % stops a space
+
+\thanks{Manuscript received in May 15, 2017, revised in September 15, 2017, and
+	accepted  in  October  15,  2017.  This  work  was  supported  by  the  Academy  of
+	Finland through the FAMOS project and Postdoctoral Researcher funding and
+	Finnish Funding Agency for Innovation (Tekes) under the 5WAVE project.} 
+	
+\thanks{D. Parveg and K. A. I. Halonen are with the Department of Electronics  and  Nanoengineering,  Aalto  University,  02150  Espoo,  Finland  (email: dristy.parveg@aalto.fi).}%		
+\thanks{M. Varonen was with the Department of Electronics  and  Nanoengineering, Aalto
+	University. He is currently with Technical Research Centre of Finland, VTT,
+	02150 Espoo, Finland (email: mikko.varonen@vtt.fi).}% <-this % stops a space
+
+\thanks{D. Karaca,  was  with  the  Department  of  Electronics  and  Nanoengineering,  Aalto University. He is currently with ICEEYE OY, 02150 Espoo, Finland (email:
+	denizhan.karaca@iceeye.com).}%
+\thanks{M. Khan is with the Department of Computer Engineering, University of Helsinki,
+	02150 Helsinki, Finland (email: m.khan@hy.fi).}% <-this % stops a space
+\thanks{A. Vahdati,  was  with  the  Department  of  Electronics  and  Nanoengineering,  Aalto University. He is currently with Ericsson AB, Kista, Sweden (email:
+	ali.vahdati@ericsson.com).}}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{IEEE Transactions on Microwave Theory and Techniques,~Vol.~XX, No.~XX, August~2017}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+In this paper, we have presented an algorithmic design methodology for designing integrated millimeter-wave quadrature coupler based on slow-wave coupled line. The design methodology is verified by a 3-dB quadrature coupler in a commercially available CMOS technology. The designed CMOS coupler covers the whole E- to W-band and occupies only 0.0115 mm$^2$  silicon area. The consumed wafer area is 50\% smaller compared to the conventional microstrip line based couplers. Measurement of the slow-wave 90$^\circ$ coupler shows a -3.5 dB through and -4.4 dB coupling at 90 GHz, and less than $\pm$1-dB amplitude and $\pm$4$^\circ$ phase errors from 55 to 110 GHz.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Coupler, coupled line, CMOS, E-band, millimeter-wave, slow-wave, quadrature, W-band, 3-dB coupling.
+\end{IEEEkeywords}
+
+
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{C}{ommunication} at millimeter-wave frequencies has drawn a lot of consideration due to the availability of wide fractional bandwidths and small antenna sizes. Recently, there has been increasing research and commercial development of integrated circuits for wireless communication at E- and W-band and automotive radar application at 77 GHz. Commercially available silicon technologies show potentiality to realize cost-effective, highly integrated systems for these applications []-[]. Like in microwave design techniques, silicon IC designs at millimeter-wave frequencies also include transmission lines, splitters, combiners, baluns, and couplers [Floyd1], [Niknijad], [Mikko.RMixer]. Among these passive circuit elements, 3-dB coupler having 90$^\circ$ phase difference between the outputs is a very important building block. It can be used for I/Q modulator-demodulator [ISSCC.shimawaki], phase shifters [IBM.60G], triplers [Northop.tripler], and various mixer topologies [D.MWCL], [Rebeiz.mixer]. These couplers are usually realized by the design technique called Lange coupler, invented by J. Lange [MKK.6]. The Lange couplers are popular due to its broadband and accurate quadrature performance. The coupler design techniques involve quarter wavelength lines at the design frequency and are usually realized with microstrip lines. One major drawback to microstrip lines on the standard silicon technologies is the low effective dielectric constant ($\sim$4) which is defined by the surrounding media (silicon dioxide). Therefore, the sizes of the couplers become very large. 
+
+Efforts have been given to miniaturize the size of silicon quadrature couplers [Floyd.IMS], [EuMIC.Ferrari]. In [Floyd.IMS], thin film microstip line was used to achieve the required coupling coefficient and an aggressive meandering was implemented to reduce the size of the coupler. In [EuMIC.Ferrari], coupler based on coupled slow-wave coplanar waveguide (CS-CPW) was presented and required coupling was achieved by modifying the shielding ribbons. However, the work has considered BiCMOS technology which allowed the designers to use wider lines compared with a standard CMOS technology. Furthermore, none of the works did address the modeling methodology used for designing their proposed complex structures. 
+
+In this work, an algorithmic design technique for a compact mm-wave coupler is presented which is feasible for any silicon technology. The coupler design is based on the use of CS-CPW and approaches a complete new way to miniaturize the structure. The proposed structure is easy to model and scalable in length. The structure provides required coupling by placing metal slabs on coupled lines within the CS-CPW structure. Since the coupler structure is based on CS-CPW structure, the modeling of the coupler relies on the fast and reliable modeling technique proposed in [Dristy.EuMIC]. Furthermore, the behavior of a CS-CPW is analyzed and based on the analysis; a conclusion of defining a good initial value of the design parameters for the EM simulation is drawn. For a proof-of-concept, a 3-dB quadrature coupler was designed. The coupler exhibits excellent performance over the entire E- to W-band.   
+
+The paper is organized as follows. Section II describes briefly the modeling methodology of the CS-CPWs. A study on the behavior of CS-CPW is covered in section III. A mathematical model is derived in section IV from the behavior analysis to estimate the initial design parameters for the EM simulation. An algorithmic design of the coupler based on CS-CPW is presented in section V. Section VI includes the design detail of the 3-dB quadrature coupler. Measurement results are presented in section VII.
+
+
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+\section{Modeling of the Coupled Slow-wave Co-planar Waveguide}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{CS-CPW_basic.png}
+	\caption{3-D view of a coupled slow-wave coplanar waveguide (CS-CPW).}
+	\label{basic_CS_CPW}
+\end{figure}
+
+A coupled slow-wave co-planar waveguide (CS-CPW) is an efficient way of implementing a coupled line in silicon technology. The CS-CPW are basically the modified versions of slow-wave co-planar waveguides (S-CPWs) which are popular for their compactness [J.Long], [Ferrari2]. 3-D view of a fundamental CS-CPW is illustrated in Fig. \ref{basic_CS_CPW}. The CS-CPW structures are composed of two signal lines of widths \textit{W} separated by a gap \textit{S}, two side-ground lines with widths of \textit{GW} located in a distance of \textit{SG} from the signal lines, and slotted metal strips below the signal lines at a distance of \textit{D}. Simulation of the complete CS-CPW structure as in Fig. \ref{basic_CS_CPW} is computationally heavy and time-consuming. Therefore, an efficient modeling methodology for designing the CS-CPW is proposed in [D.EuMIC] and successfully verified in [D. TMTT]. In the modeling approach, the side-ground lines serve as well-defined ground return current paths for the even-mode signal propagation and divides the EM problem into four parts [D.EuMIC]. 
+The EM problem is first divided into odd- and even-mode analysis and each mode is further decoupled into odd- and even-mode \textit{R \& L} and \textit{C \& G} analysis. Here the \textit{R, L, C,} and \textit{G} are the typical transmission line parameters (Telegrapher’s equation) [Pozar] which support the transverse electromagnetic (TEM) propagation. A graphical representation of the modeling method is illustrated in Fig. \ref{modeling_method}. The port definitions for the EM simulations of the odd- and even-mode analysis are also included in the Fig. \ref{modeling_method}. Four two-port \textit{S}-parameter data sets are obtained from these four EM simulations. Using these data sets, the odd- and even-mode \textit{R, L, C,} and \textit{G} parameters are calculated by the formulas stated in [Einstad]. Once the \textit{R, L, C,} and \textit{G} parameters for both the modes are obtained, the other essential transmission line parameters can be calculated from [Pozar]. The necessary model parameters for a coupled transmission line are odd- and even-mode characteristic impedances (\textit{Z$_{0o}$}, \textit{Z$_{0e}$}), effective dielectric constants ($\varepsilon$$_{ro}$, $\varepsilon$$_{re}$), attenuation constants ($\alpha$$_o$, $\alpha$$_e$), and loss tangent (tan$\delta$). To design a scalable (in length) electrical model of the CS-CPW, a physical coupled line model (CLINP) supported by the simulator Keysight's ADS [ADS] is used. A first-order frequency-dependent loss model is considered in the line model. 
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{SW_CP_analysis.png}
+	%\includegraphics {SW_CP_analysis.png}
+	\caption{Simplified representation of modeling a coupled slow-wave coplanar waveguide.}
+	\label{modeling_method}
+\end{figure*}
+
+
+\section{Behavior Analysis of Coupled Slow-wave Co-planar Waveguides}
+
+In this section, we have analyzed the electrical behavior of the CS-CPW structure by EM
+simulations. We have studied the structure, mainly to derive a table showing the behavior of the structure at different geometric parameters. This table will help the designers to select the suitable initial values of the geometric parameters for the EM simulations in order to obtain a given design goal. Furthermore, the table will also be useful for the optimization iterations of the design. 
+For this study, we had varied the geometric parameters \textit{S, D, W, SG, GW} and observed the changes in odd- and even-mode inductances (\textit{L$_{odd}$}, \textit{L$_{even}$}), capacitances (\textit{C$_{odd}$}, \textit{C$_{even}$}), and impedances (\textit{Z$_{0o}$}, \textit{Z$_{0e}$}). While varying one parameter, the other parameters were kept constant. A commercially available standard 65-nm CMOS technology was used and we have considered a length of 110 $\mu$m of CS-CPW for this analysis. The EM simulations were performed based on the modeling methodology described in the previous section. A generic cross-sectional view of the CMOS technology applied in this study is shown in Fig. \ref{tech_cross}.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{CMOS_technology5.png}
+	\caption{A generic cross-sectional view of the applied CMOS technology and a CS-CPW structure.}
+	\label{tech_cross}
+\end{figure}
+
+At first we had created a CS-CPW structure with the arbitrary design variables and use its fundamental structure as shown in Fig. \ref{basic_CS_CPW} and simulated in a 2.5D EM simulator. Apart from the fundamental structure, we had also analyzed another structure where two metal layers were electrically connected with vias for the signal lines as shown in Fig. \ref{tech_cross}. The modified structure gave lower inductances and capacitances per unit length. The changes in \textit{L$_{odd}$}, \textit{L$_{even}$}, \textit{C$_{odd}$}, \textit{C$_{even}$}, \textit{Z$_{0o}$}, and \textit{Z$_{0e}$} for different geometric parameters of the CS-CPW are shown in Fig. \ref{behavior}. These variations are tabulated in Table I with the indicators showing increasing ($\uparrow$), decreasing ($\downarrow$), and no changing ($\updownarrow$) states over the changes in geometric parameters.
+
+This behavior analysis gives a reasonable first approximation of selecting the design variables for the EM simulation. For an example, consider a case where we want to obtain a ratio of 1:6 for the odd- and even-mode impedances. It is evident from Fig. \ref{behavior} and Table I that all the geometric parameters except the \textit{SG} and \textit{GW} have the influence on both the odd- and even-mode impedances. Therefore, for an initial guess to obtain such a large ratio, we must choose a minimum possible gap \textit{S} between the signal lines. Moderate values can be chosen for the \textit{W} and \textit{D} and since the even-mode return current paths are defined to the side-ground lines, the even-mode impedances can be controlled by varying the \textit{SG} and \textit{GW} without affecting the odd-mode impedances. This property of CS-CPW gives a great design flexibility.
+
+Alternatively, instead of speculate the initial design variables from the behavior of the structure, one can perform linear regressions to estimate the initial values for the design variables from number of simulation data. In the following section, a possible first degree linear fit model is described.
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{behavior.png}
+	%\includegraphics {SW_CP_analysis.png}
+	\caption{Effect of the gap \textit{S}, shielding distance \textit{D}, signal width \textit{W}, ground width \textit{GW}, and signal to ground gap \textit{SG} over the odd- and even-mode inductances, capacitances, and characteristic impedances.}
+	\label{behavior}
+\end{figure*}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{Table_1_v1.png}
+	\label{Table1}
+\end{figure}
+
+\section{Mathematical Model for Estimating the Design Parameters}
+Will be added later.
+
+% needed in second column of first page if using \IEEEpubid
+%\IEEEpubidadjcol
+
+\section{Algorithmic Design of the Couplers Using CS-CPW}
+
+In this section, we have described a step-by-step procedure to design a coupler using CS-CPW structure. 
+
+\textit{Step 1):} At first, it is important to set the design goal. Depending on the coupler types, i.e. directional coupler with a certain coupling factor or 3-dB quadrature coupler the odd- and even-mode characteristic impedances are the key design parameters to be obtained. Fig. \ref{bcoupler} shows a typical coupled-line coupler with its ports definition. It has been shown in the literature that the maximum coupling between the input port and the coupled port occurs at a frequency, when the lengths of the two identical parallel lines are quarter wavelengths at that frequency [R.Mongia]. Standard mathematical equations to calculate the required odd- and even-mode characteristic impedances for the coupled-line coupler are derived in [R. Mongia] shown in Eq. 1 and 2. Alternatively, an ideal coupled line model from the microwave circuit simulator Keysight's ADS [ADS] or AWR Microwave Office [MWO] can be used to simulate the required odd- and even-mode impedances.
+
+\begin{equation}
+Z_{0e}=Z_0 \sqrt{\frac{1+k}{1-k}}
+\end{equation}
+
+\begin{equation}
+Z_{0o}=Z_0 \sqrt{\frac{1-k}{1+k}}
+\end{equation}
+
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{general_coupler.png}
+	\caption{Typical coupled-line coupler with its ports definition.}
+	\label{bcoupler}
+\end{figure}
+
+
+\textit{Step 2):} Once the design goal is determined, we have to make an initial guess of the geometric parameters for the EM simulation. A suitable initial guess of these parameters is critical since it will directly affect the total time required for the design task. As stated in the previous section that the behavior of the CS-CPW shown in Table I or the mathematical modeling approach described in the previous section can be used to predict the initial values of the geometric parameters.
+
+\textit{Step 3):} An efficient EM simulation methodology is important to simulate the CS-CPW structure as the structure has five design variables. As a result, a high number of iterations may require to achieve the given design goal. Therefore, the modeling methodology of CS-CPW structure explained in the section II is proposed for designing the couplers. Since the structure has been modeled using the transmission line parameters [Pozar], the proposed CS-CPW model is scalable in terms of the length. Hence for designing a quadrature coupler, we do not need to simulate at the quarter wavelength of the line but a fractional length of the line. This will further reduce the simulation time. On the other hand, it is also important to check the complete coupler performances, i.e. through, coupling, isolation, and directivity at the quarter wavelength of the line. However, if we simulate the quarter wavelength of the line, we will not be able to extract the reliable line parameters due to the resonance effect. Therefore, the scalable line parameters obtained from the EM simulations are inserted to a built-in physical coupled line model (CLINP) from the microwave circuit simulator ADS [ADS] for the complete coupler simulations. 
+
+\textit{Step 4):} For this CS-CPW based coupler design approach, few iterations may require to obtain the given design goal although the behavior table will help significantly to reduce the number of iterations. If the design goal is not achievable with the fundamental structure of the CS-CPW even after few iterations then the structure can be modified based on the requirement. For an instance, in our design example (described in the next section) we have increased the coupling by modifying the signal lines of the CS-CPW for obtaining an aggressive odd-mode slow-wave effect.
+
+\textit{Step 5):} Finally, depending on the coupler applications, the signal lines can be folded in a similar fashion as in the Lange coupler to place the outputs or inputs on the same side. To finish the design, a complete coupler needs to be drawn in agreement with the design rules for the selected silicon technology. A flow-chart is shown in Fig. \ref{flow_chart} to depict the design flow.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{flow_chart2.png}
+	\caption{Design flow of the couplers using CS-CPW.}
+	\label{flow_chart}
+\end{figure}
+
+
+\section{E- to W-band coupler design example}
+The proposed algorithm for designing CS-CPW based coupler was the basis of this design example. The design example had considered a 3-dB quadrature coupler which covers the entire E- and W-band. For a 3-dB quadrature coupler, the voltage coupling coefficient, \textit{k} is calculated to be 0.708. Hence, by using the Eq. 1 and 2, the odd- and even-mode impedances become Z$_{0o}$ = 20.67 $\Omega$, and Z$_{0e}$ = 120.9 $\Omega$ for a 50 $\Omega$ system. As mentioned in the design algorithm, the initial design parameters for the EM simulations can be estimated from the Table I or the mathematical model. In this work, we had experimented both types of approaches. The experimental data obtained during the behavior analysis of the CS-CPW were used for the mathematical modeling and the design rules from the technology were applied for the boundary conditions. The design parameters estimated from the both approaches and their possible outcomes are tabulated in Table II. Implementable physical dimensions from the estimated values were used for the corresponding EM simulations. Because of the required values of Z$_{0o}$ and Z$_{0e}$, the CS-CPW structure shown in Fig. \ref{tech_cross} was preferred in the initial design phase. A fractional line length of 110 $\mu$m was considered for the EM simulations.
+
+It can be seen from the Table II that the EM simulations using the design parameters obtained from the mathematical model had given better coupling coefficient. Therefore, these design parameters were used as initial values for the optimization iterations. However, EM simulations results using the values speculated from the behavioral table were also close to the design goal. The required coupling coefficient was achieved with single iteration; but the exact value of Z$_{0o}$ and Z$_{0e}$ could not be obtained. Note that this solution will sacrifice input match for coupling, as the port impedance is defined by,  $Z_{0} = \sqrt{Z_{0o}Z_{0e}}$ and that is $\sim$55 $\Omega$ . Nevertheless, we had drawn the layout of the coupler structure with these geometric parameters in the CMOS technology. However, the layout experienced metal density errors. In order to fulfill the metal density requirement, we had placed all the metal layers down to the shielding metal plane under the even-mode ground paths as shown in Fig. \ref{GCPW}. However, this modification had large impact on even-mode line parameters, as was expected (even-mode return current paths are defined to the side-ground lines). In contrast, the even-mode slow-wave effect was increased significantly which had reduced the required coupler length. Simulation data showing these effects are also included in the Table II.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{CS-CPW_modified.png}
+	\caption{Modified CS-CPW structure introduced for fulfilling the metal density requirements.}
+	\label{GCPW}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{special_structure2.png}
+	\caption{Top view of CS-CPW structure when the signal lines are modified in odd-mode signal propagation. The unit cell is repeated \textit{N} times to cover the complete coupler length. The slow-wave grids are not shown here to avoid any ambiguity in the figure.}
+	\label{special_structure}
+\end{figure}
+
+
+Due to the technology specific design rules constrain, the required coupling coefficient cannot be achieved with the straight forward CS-CPW structure shown in Fig. \ref{GCPW}. Therefore, we had applied an engineering approach to obtain the design goal by introducing a special structure. While approaching to this particular structure, two things were considered. First, it was obvious that there were little room left to tune the even-mode line parameters, and second, the odd-mode slow-wave effect was less. Hence, we had modified the top most metal layer of the signal lines and created slabs for gaining strong capacitive coupling in odd-mode propagation as shown in Fig. \ref{special_structure}. The new CS-CPW structure had provided high odd-mode effective dielectric constant and significantly lowered the odd-mode impedance while the changes in even-mode parameters were less prominent. The odd- and even-mode line parameters for this modified structure are also included in the Table II. The structure was built such a way that the CS-CPW remains scalable. We had considered the structure block as a unit cell so that the complete coupler structure can be made by repeating the number of
+required unit cells. In order to validate the scalability of the modified structure, we have simulated the structure with different number of unit cells and observe the effects on line parameters. It is understandable from Fig. 9 that the effect of repeating the unit cells on the line parameters are negligible hence the proposed structure is scalable.
+
+Finally, the through port of the coupler was folded to its coupled port side for obtaining the in-phase and quadrature ports to the same side. The final geometric dimensions of the CS-CPW became \textit{W} = 2.5 $\mu$m, \textit{S} = 1.5 $\mu$m, \textit{D} = 1.54 $\mu$m (Metal 3), \textit{SG} = 19.75 $\mu$m, \textit{GW} = 5 $\mu$m. With these geometric dimensions the required metal density requirements needed for the circuit fabrication were fulfilled expect for the metal 5 and 4. Therefore, extra metal plates on these two layers were placed and they had negligible effects on the line parameters. The final simulation structure in 3D view is shown in Fig. \ref{3D_full} and the corresponding complete coupler performances are shown in Fig. \ref{simulated_results}. From Fig. \ref{simulated_results}, it can be seen that the coupler has an insertion loss of -3.5 dB at the coupling and through ports, 18 dB of isolation, a less than 2$^\circ$ phase variations and a good matching over a wide bandwidth from 55 GHz to 110 GHz. The simulation results indicate that the coupler is critically-coupled even though the simulated coupling coefficient (\textit{k} = 0.73) should give over-coupled performance. However, the results are expected as the loss was compensated by the extra coupling.  
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{3D_figure_coupler_v1.png}
+	\caption{3D view of the final simulation structure for the coupler. The structure is 110 $\mu$m long and includes four unit cells and the through port is folded to the coupled port side.}
+	\label{3D_full}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{coupler_simulation2.png}
+	\caption{Simulated S-parameters and phase difference between the ports for E- to W-band quadrature coupler based on CS-CPW structure.}
+	\label{simulated_results}
+\end{figure}
+
+\section{Measurement Results}
+
+The 3-dB quadrature coupler was fabricated in a 65-nm CMOS technology and the dimension is 56 mm $\times$ 205 mm. On-wafer \textit{S}-parameter measurements were carried out for the coupler characterization. However, the coupled line coupler is a 4-port device and due the unavailability of the 4-port VNA we had fabricated two exactly same coupler structures but with different port configurations for through and coupling measurement. For through measurement, the coupled and isolated ports were terminated to the on-chip 50 $\Omega$ resistors and the input and through ports were connected to the probing pads. On the other hand, for coupling measurement the through and isolated port were terminated with 50 $\Omega$ resistors and the input and coupled were connected to
+the probing pads. In order to facilitate the connection between a coupler port and a probing pad an extra piece of SW-CPW of length 70 $\mu$m was added. The effects of the pads and the lines were de-embedded from the measurements by pad-short-open [DEumic11] and L-2L [L.2L] procedure, respectively. The micrograph of the coupler test structures are shown in Fig. \ref{micrograph}. Measured and simulated results for the coupler are shown in Fig. \ref{measurement1}. Good correlation is observed between simulations and measurements. However, slight over-coupling is observed in the measurements and
+that is because of the realized odd- and even-mode impedances were different than the targeted. The measured coupler performance show an insertion loss of -3.5 dB at the through port and -4.4 dB at the coupled port at 90 GHz. A less than 2$^\circ$ phase variations, $\pm$1-dB amplitude error, and better than 18 dB return loss is measured over a wide bandwidth from 55 GHz to 110 GHz.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{micrograph_v1.png}
+	\caption{Micrograph of the CS-CPW based coupler test structures for (a) through and (b) coupling measurements.}
+	\label{micrograph}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{Measured_deembed_coupler2.png}
+	\caption{Measured (dotted) and simulated (solid) coupler performance.}
+	\label{measurement1}
+\end{figure}
+
+Furthermore, too see the coupler performance without the de-embedding we had matched the
+coupler and fabricated two more structures as for the other case. For the matching, we had modeled the pad and the SW-CPW through EM simulations, and terminated the isolated port with 38 $\Omega$. In this case, the length of the SW-CPW was 100 $\mu$m. The measured and simulated matched coupler performances which include the pads and connecting transmission lines are shown in Fig. \ref{measurement2}. Good agreement is again observed between measurements and simulations, especially the matching. However, the loss is bit higher than the simulation and this discrepancy may arise from the inaccurate pad modeling which is always difficult in mm-wave frequencies.
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{measured_matching2.png}
+	\caption{Measured (dotted) and simulated (solid) performance of the matched coupler.}
+	\label{measurement2}
+\end{figure}
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that the IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% the IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\XXX
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+\begin{table}
+\caption{Mapping table to observe the variation of , , , , , and vs. geometrical parameter changes}
+\label{table:mapping} %take care
+\begin{tabular}{ |p{3.2cm}||p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}| }
+ \hline
+ \multirow{2}{*}{Geometrical parameter} & \multicolumn{6}{|c|}{Output} \\  \cline{2-7}
+  & ?? & ?? & ?? & ?? & ?? & ?? \\ %take care, change these headings accordingly.
+ \hline
+  W $\uparrow$ & $\downarrow$  & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
+ \hline
+  S $\uparrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ \\
+  \hline
+  D $\uparrow$ & $\updownarrow$ & $\updownarrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$\\
+ \hline
+  SG $\uparrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$ & $\uparrow$ & $\updownarrow$\\
+ \hline
+  GA $\uparrow$ & $\downarrow$  & $\updownarrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$\\
+ \hline
+\end{tabular}
+\end{table}
+
+\begin{table*}
+\caption{EM simulated odd- and even-mode line parameters $@90$ GHz for different geometric
+parameters}
+\label{table:simulation} %take care
+\begin{tabular}{ |p{3.4cm}||p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.6cm}|p{.6cm}|p{.37cm}|p{.37cm}|p{.6cm}|p{.65cm}|p{.65cm}|p{1.7cm}| }
+ \hline
+ \multirow{2}{*}{Simulation scenario} & \multicolumn{5}{|c|}{Design parameter} & \multirow{2}{*}{$(\Omega)$} & \multirow{2}{*}{$(\Omega)$} & & & & \multirow{2}{*}{(dB/m)} & \multirow{2}{*}{(dB/m)} & Complete coupler length  \\  \cline{2-6}
+  &  &  &  &  &  &  &  &  &  &  &  &  & ($\mu$m)\\ %take care, change these headings accordingly.
+ \hline
+  Estimated model from Table \ref{table:mapping} & $6$ & $1.5$  & $1.6$ & $10$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$\\
+ \hline
+  EM Simulated model & $6$ & $1.5$  & $1.66$ & $10$ & $15$ & $20.38$ & $97$ & $0.65$ & $6$ & $9.52$ & & & \\
+ \hline
+  Mathematical model & $3.53$ & $1.5$  & $2.04$ & $4$ & $11.8$ & $20.7$ & $121$ & $0.71$ & $-$ & $-$ & $-$ & $-$ & $-$ \\
+ \hline
+  EM Simulated model & $3.5$ & $1.5$  & $2.04$ & $4$ & $12$ & $23.4$ & $130.5$ & $0.69$ & $5.1$ & $6.3$ & $1600$ & $615$ & $333$\\
+ \hline
+  EM simulation iteration:1 & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $133$ & $0.7$ & $5.5$ & $5.56$ & $1860$ & $600$ & $340$\\
+ \hline
+  EM simulation iteration:$2^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $86.25$ & $0.58$ & $5.5$ & $13.25$ & $1860$ & $670$ & $275$\\
+ \hline
+   EM simulation iteration:$3^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $22.9$ & $91.68$ & $0.6$ & $5.5$ & $14.8$ & $1860$ & $700$ & $260$\\ 
+ \hline
+   EM simulation iteration:$4^\dagger$ &  $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $12.7$ & $93.45$ & $0.76$ & $23.8$ & $15.35$ & $4760$ & $800$ & $180$\\
+ \hline
+   EM simulation iteration:$5^\dagger$ &  $2.5$ & $1.5$  & $2.04$ & $4$ & $20$ & $15.76$ & $109$ & $0.75$ & $18.6$ & $13.1$ & $4760$ & $865$ & $200$\\
+ \hline
+   EM simulation iteration:$6^\dagger$ &  $2.5$ & $1.5$  & $1.57$ & $4$ & $20$ & $16.73$ & $105.7$ & $0.73$ & $17.5$ & $13.6$ & $4600$ & $1240$ & $205$\\
+ \hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}
+\caption{State-of- the-Art performance of mm-wave 3-dB Quadrature couplers on Silicon Technology}
+\label{table:technology} %take care
+\begin{tabular}{ |p{1.6cm}||p{1.7cm}|p{2.1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1.2cm}| }
+ \hline
+ Ref & Topology  & Technology & Frequency (GHz) & Insertion loss (dB) & Coupling (dB) & Return loss (dB) & $\pm$1 dB BW (GHz) & $\pm$ 5 BW (GHz) & Size(mm$^2$) \\ %take care, is there a degree sigin on plus minus 5?
+ \hline
+  \textbf{This work} & \textbf{CP-SW}  & \textbf{65-nm CMOS} & \textbf{90} & \textbf{3.5}  &  \textbf{4.4} & \textbf{$>$ 18} & \textbf{55} & \textbf{$>$ 60}  & \textbf{0.0115}\\ %take care, change these headings accordingly.
+ \hline
+  [Floyd.IMS] & Lange coipler & 130-nm BiCMOS  & 60 & 4 & 5 & 20 & $-$ & $21^*$ & 0.048\\ %take care, maybe you would like to cite in the ref column
+ \hline
+  [Floyd.IMS] & Lange coipler/ meandering & 130-nm BiCMOS  & 60 & 4 & 5 & 15 & $-$ & $19^*$ & 0.0192\\ %take care, maybe you would like to cite in the ref column
+ \hline
+  [D.Titz] & MBLC & 130-nm BiCMOS  & 70 & $-$ & $5.4$ & $8.5$ & $5$ & $9$ & $0.239$\\ %take care, maybe you would like to cite in the ref column
+ \hline
+  [D.Titz] & QLQC & 130-nm BiCMOS  & 62 & $-$ & 4.1 & 12.7 & 4 & 10.5 & 0.029\\ %take care, maybe you would like to cite in the ref column 
+ \hline
+  [EC.CPW] & EC-CPW & 90-nm CMOS  & 62 & 4.8 & 5.5 & 22 & $\sim 6.5$ & $\sim 9$ & $0.102$\\ %take care, maybe you would like to cite in the ref column
+ \hline
+  [Ferrari.Thesis] & CP-SW & 55-nm BiCMOS  & 60 & $3.3^+$ & $3.5^+$ & $29^+$ & $-$ & $-$ & $.069$\\ %take care, maybe you would like to cite in the ref column
+ \hline
+\end{tabular}
+\end{table*}
+
+\section{Conclusion}
+An algorithmic design methodology was developed for mm-wave CS-CPW based silicon couplers. Besides, an experiment on the behavior of the CS-CPW structure had performed and a design map has been created for improving the design efficiency. Based on the proposed design algorithm and the design map, a 3-dB quadrature coupler covering the whole E- to W-band has been successfully demonstrated in a 65-nm CMOS technology. The state-of-the-art results published for the 3-dB quadrature couplers realized on monolithic silicon technologies are shown in Table III. The presented results show excellent wideband coupler performances. A size reduction of about 50$\%$ compared to the conventional microstrip based quadrature couplers is achieved. Moreover, the good
+agreement between the simulation and measurement results indicates the validity of the applied modeling technique. The proposed CS-CPW based coupler is well suited for the design of compact mm-wave silicon radio front-ends.
+
+
+
+
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+\appendices
+\section{Proof of the First Zonklar Equation}
+Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+\section{}
+Appendix two text goes here.
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+\begin{IEEEbiography}{Dristy Parveg}
+(S'09) received the B.Sc. degree in electrical and electronic engineering from the Rajshahi University of Engineering and Technology, Rajshahi, Bangladesh, in 2004, and the M.Sc. degree in electronic/telecommunications engineering from the University of Gävle, Gävle, Sweden, in 2009. He is currently pursuing the Ph.D. degree in electrical engineering with the Department of Electronics and Nanoengineering, Aalto University, Espoo, Finland. He was with Infineon Technologies Austria AG, Villach, Austria, from 2008 to 2009. His current research interests include millimeter-wave CMOS radio front-ends circuits for earth remote sensing applications and 5G communication.
+\end{IEEEbiography}
+
+% if you will not have a photo at all:
+\begin{IEEEbiographynophoto}{Mikko Varonen}
+(S'09) received the M.Sc., Lic.Sc., and D.Sc. (with distinction) degrees in electrical
+engineering from the Aalto University (formerly Helsinki University of Technology), Espoo, Finland, in 2002, 2005 and 2010, respectively.
+He is currently a Senior Scientist with
+the VTT Technical Research Centre of
+Finland, Espoo, Finland. During 2013 to
+2016 he was an Academy of Finland
+Postdoctoral researcher with the Aalto
+University, Department of Electronics and Nanoengineering. During his postdoctoral fellowship, he was a Visiting scientist
+both at the Jet Propulsion Laboratory (JPL) and California Institute of
+Technology (EE), and Fraunhofer Institute of Applied Solid-State Physics.
+During 2013 to 2016 he was also with LNAFIN Inc., Helsinki, Finland.
+During 2011 he was a NASA Postdoctoral Program Fellow at the JPL. His
+research interests involve the development of millimeter-wave integrated
+circuits using both silicon and compound semiconductor technologies for
+applications ranging from astrophysics and Earth remote sensing to
+millimeter-wave communications.
+
+\end{IEEEbiographynophoto}
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+\begin{IEEEbiographynophoto}{Jane Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}
+
+
