@@ -1,0 +1,2 @@
+1. Explain the role of SIgma being symmetric and positive definite in Problem 1.
+
