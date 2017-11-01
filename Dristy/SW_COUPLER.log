@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.16)  9 MAY 2017 15:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.16)  15 MAY 2017 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -184,35 +184,138 @@ LaTeX Info: Redefining \] on input line 2666.
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen128
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count105
+\mult@box=\box29
+\multicol@leftmargin=\dimen129
+\c@unbalance=\count106
+\c@collectmore=\count107
+\doublecol@number=\count108
+\multicoltolerance=\count109
+\multicolpretolerance=\count110
+\full@width=\dimen130
+\page@free=\dimen131
+\premulticols=\dimen132
+\postmulticols=\dimen133
+\multicolsep=\skip47
+\multicolbaselineskip=\skip48
+\partial@page=\box30
+\last@line=\box31
+\mult@rightbox=\box32
+\mult@grightbox=\box33
+\mult@gfirstbox=\box34
+\mult@firstbox=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\c@columnbadness=\count111
+\c@finalcolumnbadness=\count112
+\last@try=\dimen134
+\multicolovershoot=\dimen135
+\multicolundershoot=\dimen136
+\mult@nat@firstbox=\box53
+\colbreak@box=\box54
+\multicol@sort@counter=\count113
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen137
+\extrarowheight=\dimen138
+\NC@list=\toks21
+\extratabsurround=\skip49
+\backup@length=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen139
+\lightrulewidth=\dimen140
+\cmidrulewidth=\dimen141
+\belowrulesep=\dimen142
+\belowbottomsep=\dimen143
+\aboverulesep=\dimen144
+\abovetopsep=\dimen145
+\cmidrulesep=\dimen146
+\cmidrulekern=\dimen147
+\defaultaddspace=\dimen148
+\@cmidla=\count114
+\@cmidlb=\count115
+\@aboverulesep=\dimen149
+\@belowrulesep=\dimen150
+\@thisruleclass=\count116
+\@lastruleclass=\count117
+\@thisrulewidth=\dimen151
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
 (./SW_COUPLER.aux)
 \openout1 = `SW_COUPLER.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 361.
+LaTeX Font Info:    ... okay on input line 361.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen129
-\scratchbox=\box29
-\nofMPsegments=\count106
-\nofMParguments=\count107
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen130
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count118
+\scratchdimen=\dimen152
+\scratchbox=\box55
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen153
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
+\everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -261,13 +364,23 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Underfull \hbox (badness 7186) in paragraph at lines 455--457
+LaTeX Font Info:    Try loading font information for U+msa on input line 457.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 457.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 7186) in paragraph at lines 461--463
 []\OT1/ptm/b/it/9 Index Terms\OT1/ptm/b/n/9 ---Coupler, cou-pled line, CMOS, E-
 band,
  []
 
 
-LaTeX Warning: File `CS-CPW_basic.png' not found on input line 507.
+LaTeX Warning: File `CS-CPW_basic.png' not found on input line 513.
 
 
 ! Package pdftex.def Error: File `CS-CPW_basic.png' not found.
@@ -276,10 +389,10 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.507 ...phics[width=\linewidth]{CS-CPW_basic.png}
+l.513 ...phics[width=\linewidth]{CS-CPW_basic.png}
                                                   
 ? 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 507.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 513.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -292,7 +405,7 @@ Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
 
-LaTeX Warning: File `SW_CP_analysis.png' not found on input line 516.
+LaTeX Warning: File `SW_CP_analysis.png' not found on input line 522.
 
 
 ! Package pdftex.def Error: File `SW_CP_analysis.png' not found.
@@ -301,11 +414,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.516 ...ics[width=\linewidth]{SW_CP_analysis.png}
+l.522 ...ics[width=\linewidth]{SW_CP_analysis.png}
                                                   
 ? 
 
-LaTeX Warning: File `CMOS_technology5.png' not found on input line 530.
+LaTeX Warning: File `CMOS_technology5.png' not found on input line 536.
 
 
 ! Package pdftex.def Error: File `CMOS_technology5.png' not found.
@@ -314,7 +427,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.530 ...s[width=\linewidth]{CMOS_technology5.png}
+l.536 ...s[width=\linewidth]{CMOS_technology5.png}
                                                   
 ? 
 [2]
@@ -325,33 +438,65 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 
-LaTeX Warning: File `behavior.png' not found on input line 542.
+LaTeX Warning: File `behavior1.png' not found on input line 552.
 
 
-! Package pdftex.def Error: File `behavior.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.542 ...egraphics[width=\linewidth]{behavior.png}
-                                                  
-? 
-
-LaTeX Warning: File `Table_1_v1.png' not found on input line 549.
-
-
-! Package pdftex.def Error: File `Table_1_v1.png' not found.
+! Package pdftex.def Error: File `behavior1.png' not found.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.549 ...raphics[width=\linewidth]{Table_1_v1.png}
+l.552 ...graphics[width=\linewidth]{behavior1.png}
                                                   
 ? 
 
-LaTeX Warning: File `general_coupler.png' not found on input line 575.
+Underfull \hbox (badness 2334) in paragraph at lines 582--583
+\OML/cmm/m/it/10 a[]$\OT1/ptm/m/n/10 , $\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = 
+\OML/cmm/m/it/10 a[]$\OT1/ptm/m/n/10 , $\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = 
+\OML/cmm/m/it/10 a[]$\OT1/ptm/m/n/10 , $\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = 
+\OML/cmm/m/it/10 a[]$ \OT1/ptm/m/n/10 so that
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 601.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+) [4] [5]
+Underfull \hbox (badness 1675) in paragraph at lines 665--666
+[]\OT1/ptm/m/n/10 We can find the value of $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (
+2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cm
+m/m/it/10 :\OT1/cmr/m/n/10 5\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/1
+0 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 20)$ \OT1/ptm/m/n/10 and
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 690--691
+[]\OT1/ptm/m/n/10 The re-quired val-ues of the vari-ables are $\OML/cmm/m/it/10
+ x[] \OT1/cmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 700--701
+\OML/cmm/m/it/10 a[]; x[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[]; x[] \OT1/cmr/
+m/n/10 = \OML/cmm/m/it/10 a[]; x[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[]; x[] 
+\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[]$ \OT1/ptm/m/n/10 so that
+ []
+
+
+Overfull \hbox (5.11769pt too wide) in alignment at lines 708--718
+ [][][] []
+ []
+
+[6]
+Underfull \hbox (badness 2653) in paragraph at lines 722--723
+[]\OT1/ptm/m/n/10 The re-quired val-ues of the vari-ables are $\OML/cmm/m/it/10
+ x[] \OT1/cmr/m/n/10 =
+ []
+
+
+LaTeX Warning: File `general_coupler.png' not found on input line 752.
 
 
 ! Package pdftex.def Error: File `general_coupler.png' not found.
@@ -360,15 +505,12 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.575 ...cs[width=\linewidth]{general_coupler.png}
+l.752 ...cs[width=\linewidth]{general_coupler.png}
                                                   
 ? 
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[7]
 
-
-
-LaTeX Warning: File `flow_chart2.png' not found on input line 590.
+LaTeX Warning: File `flow_chart2.png' not found on input line 767.
 
 
 ! Package pdftex.def Error: File `flow_chart2.png' not found.
@@ -377,15 +519,16 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.590 ...aphics[width=\linewidth]{flow_chart2.png}
+l.767 ...aphics[width=\linewidth]{flow_chart2.png}
                                                   
 ? 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (41.44391pt too wide) in paragraph at lines 780--810
+ [][] 
+ []
 
- [5]
 
-LaTeX Warning: File `CS-CPW_modified.png' not found on input line 602.
+LaTeX Warning: File `CS-CPW_modified.png' not found on input line 817.
 
 
 ! Package pdftex.def Error: File `CS-CPW_modified.png' not found.
@@ -394,11 +537,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.602 ...cs[width=\linewidth]{CS-CPW_modified.png}
+l.817 ...cs[width=\linewidth]{CS-CPW_modified.png}
                                                   
 ? 
 
-LaTeX Warning: File `special_structure2.png' not found on input line 608.
+LaTeX Warning: File `special_structure2.png' not found on input line 823.
 
 
 ! Package pdftex.def Error: File `special_structure2.png' not found.
@@ -407,15 +550,16 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.608 ...width=\linewidth]{special_structure2.png}
+l.823 ...width=\linewidth]{special_structure2.png}
                                                   
 ? 
+[8]
 
-Underfull \vbox (badness 2057) has occurred while \output is active []
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 832.
 
- [6]
 
-LaTeX Warning: File `3D_figure_coupler_v1.png' not found on input line 620.
+LaTeX Warning: File `3D_figure_coupler_v1.png' not found on input line 861.
 
 
 ! Package pdftex.def Error: File `3D_figure_coupler_v1.png' not found.
@@ -424,11 +568,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.620 ...dth=\linewidth]{3D_figure_coupler_v1.png}
+l.861 ...dth=\linewidth]{3D_figure_coupler_v1.png}
                                                   
 ? 
 
-LaTeX Warning: File `coupler_simulation2.png' not found on input line 626.
+LaTeX Warning: File `coupler_simulation2.png' not found on input line 867.
 
 
 ! Package pdftex.def Error: File `coupler_simulation2.png' not found.
@@ -437,12 +581,18 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.626 ...idth=\linewidth]{coupler_simulation2.png}
+l.867 ...idth=\linewidth]{coupler_simulation2.png}
                                                   
 ? 
-[7]
+[9]
+Underfull \vbox (badness 5847) has occurred while \output is active []
 
-LaTeX Warning: File `micrograph_v1.png' not found on input line 638.
+
+Underfull \vbox (badness 1824) has occurred while \output is active []
+
+ [10]
+
+LaTeX Warning: File `micrograph_v1.png' not found on input line 879.
 
 
 ! Package pdftex.def Error: File `micrograph_v1.png' not found.
@@ -451,11 +601,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.638 ...hics[width=\linewidth]{micrograph_v1.png}
+l.879 ...hics[width=\linewidth]{micrograph_v1.png}
                                                   
 ? 
 
-LaTeX Warning: File `Measured_deembed_coupler2.png' not found on input line 644
+LaTeX Warning: File `Measured_deembed_coupler2.png' not found on input line 885
 .
 
 
@@ -465,15 +615,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.644 ...linewidth]{Measured_deembed_coupler2.png}
+l.885 ...linewidth]{Measured_deembed_coupler2.png}
                                                   
 ? 
 
-Underfull \vbox (badness 2057) has occurred while \output is active []
-
-
-
-LaTeX Warning: File `measured_matching2.png' not found on input line 653.
+LaTeX Warning: File `measured_matching2.png' not found on input line 894.
 
 
 ! Package pdftex.def Error: File `measured_matching2.png' not found.
@@ -482,267 +628,102 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.653 ...width=\linewidth]{measured_matching2.png}
+l.894 ...width=\linewidth]{measured_matching2.png}
                                                   
 ? 
 
-Overfull \hbox (4.61761pt too wide) in paragraph at lines 779--779
-[][]| 
+Overfull \hbox (5.19513pt too wide) in paragraph at lines 905--905
+[]|\OT1/ptm/m/n/8 Frequency
  []
 
 
-Overfull \hbox (4.61761pt too wide) in paragraph at lines 779--779
-[][]| 
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
+[]|\OT1/ptm/m/n/8 Insertion
  []
 
 
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 784--784
-[]$\OT1/cmr/m/n/8 1\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 66$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 784--784
-[]$\OT1/cmr/m/n/8 20\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 38$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 784--784
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 65$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 786--786
-[]$\OT1/cmr/m/n/8 3\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 53$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 786--786
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 786--786
-[]$\OT1/cmr/m/n/8 11\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 8$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 786--786
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 71$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 788--788
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 788--788
-[]$\OT1/cmr/m/n/8 130\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 788--788
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 69$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 790--790
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 792--792
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 792--792
-[]$\OT1/cmr/m/n/8 86\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 25$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 792--792
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 58$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 792--792
-[]$\OT1/cmr/m/n/8 13\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 25$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 794--794
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 794--794
-[]$\OT1/cmr/m/n/8 91\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 68$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 796--796
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 796--796
-[]$\OT1/cmr/m/n/8 93\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 45$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 796--796
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 76$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 796--796
-[]$\OT1/cmr/m/n/8 23\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 8$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 796--796
-[]$\OT1/cmr/m/n/8 15\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 35$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 798--798
-[]$\OT1/cmr/m/n/8 2\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 04$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 798--798
-[]$\OT1/cmr/m/n/8 15\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 76$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 798--798
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 75$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 798--798
-[]$\OT1/cmr/m/n/8 18\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 6$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 800--800
-[]$\OT1/cmr/m/n/8 1\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 57$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 800--800
-[]$\OT1/cmr/m/n/8 16\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 73$| 
- []
-
-
-Overfull \hbox (2.28957pt too wide) in paragraph at lines 800--800
-[]$\OT1/cmr/m/n/8 105\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 7$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 800--800
-[]$\OT1/cmr/m/n/8 0\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 73$| 
- []
-
-
-Overfull \hbox (4.58395pt too wide) in paragraph at lines 800--800
-[]$\OT1/cmr/m/n/8 17\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$| 
- []
-
-
-Overfull \hbox (5.19513pt too wide) in paragraph at lines 811--811
-[]\OT1/ptm/m/n/8 Frequency
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
-[]\OT1/ptm/m/n/8 Insertion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
 \OT1/ptm/m/n/8 loss
  []
 
 
-Overfull \hbox (1.33104pt too wide) in paragraph at lines 811--811
-[]\OT1/ptm/m/n/8 Coupling
+Overfull \hbox (1.33104pt too wide) in paragraph at lines 905--905
+[]|\OT1/ptm/m/n/8 Coupling
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
-[]\OT1/ptm/m/n/8 Return
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
+[]|\OT1/ptm/m/n/8 Return
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
 \OT1/ptm/m/n/8 loss
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
-[]$\OMS/cmsy/m/n/8 ^^F$\OT1/ptm/m/n/8 1 dB
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
+[]|$\OMS/cmsy/m/n/8 ^^F$\OT1/ptm/m/n/8 1 dB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--811
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
 \OT1/ptm/m/n/8 BW
  []
 
 
-Overfull \hbox (1.57497pt too wide) in paragraph at lines 811--812
-[]\OT1/ptm/m/n/8 Size(mm$[]$)| 
+Overfull \hbox (1.57497pt too wide) in paragraph at lines 905--906
+[]|\OT1/ptm/m/n/8 Size(mm$[]$)| 
  []
 
 
-Overfull \hbox (4.45877pt too wide) in paragraph at lines 825--825
-[]\OT1/ptm/m/n/8 [Ferrari.Thesis]| 
+Overfull \hbox (4.45877pt too wide) in paragraph at lines 919--919
+[]|\OT1/ptm/m/n/8 [Ferrari.Thesis]| 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \vbox (badness 6461) has occurred while \output is active []
-
+[11]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
- [9]
-[10
+ [12
 
 ] (./SW_COUPLER.aux) ) 
 Here is how much of TeX's memory you used:
- 2880 strings out of 493304
- 43112 string characters out of 6139871
- 145784 words of memory out of 5000000
- 6286 multiletter control sequences out of 15000+600000
- 47396 words of font info for 89 fonts, out of 8000000 for 9000
+ 3886 strings out of 493304
+ 55007 string characters out of 6139871
+ 141804 words of memory out of 5000000
+ 7251 multiletter control sequences out of 15000+600000
+ 52714 words of font info for 104 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 38i,11n,28p,1630b,260s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,35p,1630b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
 c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SW_COUPLER.pdf (10 pages, 206999 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
+c/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on SW_COUPLER.pdf (12 pages, 278687 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -350,7 +350,13 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\usepackage{multirow} %take care, add this line. this is required to merge two cells vertically in a table
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
 \begin{document}
 %
@@ -389,8 +395,8 @@
 
 \thanks{D. Karaca,  was  with  the  Department  of  Electronics  and  Nanoengineering,  Aalto University. He is currently with ICEEYE OY, 02150 Espoo, Finland (email:
 	denizhan.karaca@iceeye.com).}%
-\thanks{M. Khan is with the Department of Computer Engineering, University of Helsinki,
-	02150 Helsinki, Finland (email: m.khan@hy.fi).}% <-this % stops a space
+\thanks{M. Khan is with the Department of Computer Science, University of Helsinki,
+	Helsinki, Finland (email: mohsin.khan@helsinki.fi).}% <-this % stops a space
 \thanks{A. Vahdati,  was  with  the  Department  of  Electronics  and  Nanoengineering,  Aalto University. He is currently with Ericsson AB, Kista, Sweden (email:
 	ali.vahdati@ericsson.com).}}
 
@@ -532,29 +538,200 @@ For this study, we had varied the geometric parameters \textit{S, D, W, SG, GW} 
 	\label{tech_cross}
 \end{figure}
 
-At first we had created a CS-CPW structure with the arbitrary design variables and use its fundamental structure as shown in Fig. \ref{basic_CS_CPW} and simulated in a 2.5D EM simulator. Apart from the fundamental structure, we had also analyzed another structure where two metal layers were electrically connected with vias for the signal lines as shown in Fig. \ref{tech_cross}. The modified structure gave lower inductances and capacitances per unit length. The changes in \textit{L$_{odd}$}, \textit{L$_{even}$}, \textit{C$_{odd}$}, \textit{C$_{even}$}, \textit{Z$_{0o}$}, and \textit{Z$_{0e}$} for different geometric parameters of the CS-CPW are shown in Fig. \ref{behavior}. These variations are tabulated in Table I with the indicators showing increasing ($\uparrow$), decreasing ($\downarrow$), and no changing ($\updownarrow$) states over the changes in geometric parameters.
+At first we had created a CS-CPW structure with the arbitrary design variables and use its fundamental structure as shown in Fig. \ref{basic_CS_CPW} and simulated in a 2.5D EM simulator. Apart from the fundamental structure, we had also analyzed another structure where two metal layers were electrically connected with vias for the signal lines as shown in Fig. \ref{tech_cross}. The modified structure gave lower inductances and capacitances per unit length. The changes in \textit{L$_{odd}$}, \textit{L$_{even}$}, \textit{C$_{odd}$}, \textit{C$_{even}$}, \textit{Z$_{0o}$}, and \textit{Z$_{0e}$} for different geometric parameters of the CS-CPW are shown in Fig. \ref{behavior}. These variations are tabulated in Table \ref{table:mapping} with the indicators showing increasing ($\uparrow$), decreasing ($\downarrow$), and no changing ($\updownarrow$) states over the changes in geometric parameters.
 
-This behavior analysis gives a reasonable first approximation of selecting the design variables for the EM simulation. For an example, consider a case where we want to obtain a ratio of 1:6 for the odd- and even-mode impedances. It is evident from Fig. \ref{behavior} and Table I that all the geometric parameters except the \textit{SG} and \textit{GW} have the influence on both the odd- and even-mode impedances. Therefore, for an initial guess to obtain such a large ratio, we must choose a minimum possible gap \textit{S} between the signal lines. Moderate values can be chosen for the \textit{W} and \textit{D} and since the even-mode return current paths are defined to the side-ground lines, the even-mode impedances can be controlled by varying the \textit{SG} and \textit{GW} without affecting the odd-mode impedances. This property of CS-CPW gives a great design flexibility.
+This behavior analysis gives a reasonable first approximation of selecting the design variables for the EM simulation. For an example, consider a case where we want to obtain a ratio of 1:6 for the odd- and even-mode impedances. It is evident from Fig. \ref{behavior} and Table \ref{table:mapping} that all the geometric parameters except the \textit{SG} and \textit{GW} have the influence on both the odd- and even-mode impedances. Therefore, for an initial guess to obtain such a large ratio, we must choose a minimum possible gap \textit{S} between the signal lines. Moderate values can be chosen for the \textit{W} and \textit{D} and since the even-mode return current paths are defined to the side-ground lines, the even-mode impedances can be controlled by varying the \textit{SG} and \textit{GW} without affecting the odd-mode impedances. This property of CS-CPW gives a great design flexibility.
 
-Alternatively, instead of speculate the initial design variables from the behavior of the structure, one can perform linear regressions to estimate the initial values for the design variables from number of simulation data. In the following section, a possible first degree linear fit model is described.
+
+%modified by mohsin begin
+Alternatively, instead of speculating the initial design variables from the behavior of the structure, one can obtain a mathematical model of the behavior of the structure using the simulation data. Then optimize the mathematical model to find the initial design variables. In the following section, we do linear regression to find a linear model and linear programming to optimize the linear model. We take the output of the linear program as the values of the initial design varibles.
+%modified by mohsin
+
 
 \begin{figure*}
-	\includegraphics[width=\linewidth]{behavior.png}
-	%\includegraphics {SW_CP_analysis.png}
-	\caption{Effect of the gap \textit{S}, shielding distance \textit{D}, signal width \textit{W}, ground width \textit{GW}, and signal to ground gap \textit{SG} over the odd- and even-mode inductances, capacitances, and characteristic impedances.}
+	\includegraphics[width=\linewidth]{behavior1.png}
+	\caption{Effect of the gap \textit{S}, shielding distance \textit{D}, signal width \textit{W}, ground width \textit{GW}, and signal to ground gap \textit{SG} on the odd- and even-mode inductances (\textit{L$_{odd}$}, \textit{L$_{even}$}), capacitances (\textit{C$_{odd}$}, \textit{C$_{even}$}), and characteristic impedances (\textit{Z$_{0o}$}, and \textit{Z$_{0e}$}). Dotted lines represent the odd-mode and solid lines represent the even-mode line parameters.}
 	\label{behavior}
 \end{figure*}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{Table_1_v1.png}
-	\label{Table1}
-\end{figure}
+\begin{table}
+	\centering
+	\caption{Mapping Table to Observe the Variation of \textit{L$_{even}$}, \textit{L$_{odd}$}, \textit{C$_{even}$}, \textit{C$_{odd}$}, \textit{Z$_{0e}$}, and \textit{Z$_{0o}$} vs. Geometrical Parameter Changes}
+	\label{table:mapping} %take care
+	\begin{tabular}{ |c|c|c|c|c|c|c| }
+		\hline
+		\multirow{1}{*}{Geometrical } & \multicolumn{6}{|c|}{Output} \\  \cline{2-7}
+		parameter& \textit{L$_{even}$} & \textit{L$_{odd}$} & \textit{C$_{even}$} & \textit{C$_{odd}$} & \textit{Z$_{0e}$} & \textit{Z$_{0o}$} \\ %take care, change these headings accordingly.
+		\hline
+		\textit{W~~}   $\uparrow$ & $\downarrow$  & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
+		\hline
+		\textit{S~~~}   $\uparrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ \\
+		\hline
+		\textit{D~~} $\uparrow$ & $\updownarrow$ & $\updownarrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$\\
+		\hline
+		\textit{SG~} $\uparrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$ & $\uparrow$ & $\updownarrow$\\
+		\hline
+		\textit{GW} $\uparrow$ & $\downarrow$  & $\updownarrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$\\
+		\hline
+	\end{tabular}
+\end{table}
 
 \section{Mathematical Model for Estimating the Design Parameters}
-Will be added later.
+For the sake of simplicity, let us change the variable notations from \textit{W, S, D, GW}, and \textit{SG} to $x_1,x_2,x_3,x_4$, and $x_5$ respectively. The two critical positive outputs \textit{Z$_{0e}$} and \textit{Z$_{0o}$} to   $y_1,y_2 \in \mathbb{R}$. We have learnt that $y_1$ is a function on $5$ positive variables $x_1,x_2,x_3,x_4,x_5 \in \mathbb{R}$ and we name this function $F$. We also have learnt that $y_2$ is a function on $3$ variables $x_1,x_2,x_3$ and we name this function $G$. Apart from being positive and real, the input variables have some other constrains depending on the used technology. We are interested to optimize the functions $F$ and $G$ while satisfying all the technology dependant contstraints. We have been interested to optimize these functions in few alternative ways. The candidates are as follows:
+\begin{enumerate}
+	\item Maximize $F - G$: Finding values $x_1=a_1$, $x_2=a_2$, $x_3=a_3$, $x_4=a_4$, $x_5=a_5$ so that $F(a_1,a_2,a_3,a_4,a_5) - G(a_1,a_2,a_3)$ becomes as small as possible.
+	\item Minimize $\vert\frac{F}{G}-b\vert$: Finding values $x_1=a_1$, $x_2=a_2$, $x_3=a_3$, $x_4=a_4$, $x_5=a_5$ so that $\frac{F(a_1,a_2,a_3,a_4,a_5)}{G(a_1,a_2,a_3)}$ becomes as close as possible to a certain constant $b$ (ratio of)
+	\item Minimize $\vert F-b_1 \vert + \vert G-b_2 \vert$: Finding values $x_1=a_1$, $x_2=a_2$, $x_3=a_3$, $x_4=a_4$, $x_5=a_5$ so that $F(a_1,a_2,a_3,a_4,a_5)$ and $G(a_1,a_2,a_3)$  goes as close as possible to constant values $b_1$ and $b_2$ respectively.
+\end{enumerate}
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
+We need a mathematical model of the functions $F$ and $G$ to do such optimizations. Let $f_i:\mathbb{R} \rightarrow \mathbb{R}$ be a function that takes the variable $x$ as input while the other input variables $x_{j} \text{ for } j \in \left\lbrace1,...5\right\rbrace\setminus{i}$ of $F$ are kept at constant values i.e., 
+\begin{eqnarray}
+	f_i(x\vert a_1,...,a_{i-1},x,a_{i+1},...,a_{5}) &=& \nonumber \\ 
+	F(a_1,...,a_{i-1},x,a_{i+1},...,a_{5})
+\end{eqnarray}
+We define the function $g_i:\mathbb{R} \rightarrow \mathbb{R}$ in the same way so that 
+\begin{eqnarray}
+	g_i(x\vert a_1,...,a_{i-1},x,a_{i+1},...,a_{5}) &=& \nonumber \\
+	G(a_1,...,a_{i-1},x,a_{i+1},...,a_{5})
+\end{eqnarray} 
+
+From the result of the experiments, presented in Figure \ref{behavior}, it is evident that $f_i$ and  $g_i$ are almost, if not exactly, linear functions. Motivated by this observation, we make an educated guess that both of the functions $F$ and $G$ are approximately linear. We do not provide an analytical argument to justify the linearity of \textit{Z$_{0o}$} and \textit{Z$_{0e}$}. Instead, we use linear regression on the $18$ experimental results to find models $f:\mathbb{R}^5 \rightarrow \mathbb{R}$, $g:\mathbb{R}^3 \rightarrow \mathbb{R}$ where $f(x_1,x_2,x_3,x_4,x_5) \approx G(x_1,x_2,x_3,x_4,x_5)$ and $g(x_1,x_2,x_3) \approx G(x_1,x_2,x_3)$ and compute the training errors.
+
+\subsection{Linear Regression}
+We use linear regression on the $18$ experimental results and find the linear models $f$ and $g$. We have used the statistical programming tool R to do the linear regression. We obtain the following models $f$ and $g$ and their errors by running the source file \textsf{model.R}. The source file is added in the Appendix.
+
+\begin{small}
+	\begin{eqnarray}
+		f(x_1, x_2, x_3, x_4, x_5) &=& \nonumber \\ 
+		& &-7.266 \cdot x_1 + 0.372 \cdot x_2 + 29.175 \cdot x_3 \nonumber \\
+		& &- 3.278 \cdot x_4 + 1.823 \cdot x_5 + 78.226 \\
+		g(x_1, x_2, x_3) &=& -5.477 \cdot x_1 + 4.640 \cdot x_2  \nonumber \\
+		& & + 4.290 \cdot x_3 + 24.343
+	\end{eqnarray}
+\end{small}
+
+For an input $(x_1 = a_1,x_2 = a_2,x_3 = a_3,x_4 = a_4,x_5 = a_5)$, the error percentages of the models $f$ and $g$ are as follow
+
+	\begin{eqnarray*}
+		& & \frac{|f(a_1,a_2,a_3,a_4,a_5)-F(a_1,a_2,a_3,a_4,a_5)|}{F(a_1,a_2,a_3,a_4,a_5)} \times 100\\
+		& & \frac{|g(a_1,a_2,a_3)-G(a_1,a_2,a_3)|}{G(a_1,a_2,a_3)}\times 100
+	\end{eqnarray*}
+
+We compute the mean, standard deviation, minimum and maximum error percentages of the models $f$ and $g$ over all the $18$ inputs and present in Table \ref{table:error_of_linear_models}.
+\begin{table}	
+	\caption{Errors of linear models}
+	\label{table:error_of_linear_models}
+	\begin{tabular}{ | l | l | l | l | l |}
+		\hline 
+		& &\multicolumn{3}{ c| }{Error percentage} \\
+		\hline
+		Model & Mean & Standard Deviation & Min  & Max\\ \hline
+		$f$ & 2.209766 & 2.480924 & 0.5398369 & 9.525519 \\ \hline
+		$g$ & 1.002286 & 1.329765 & 0.008706377 & 5.115356 \\ \hline
+	\end{tabular}
+\end{table}
+We reckon, these error percentages indicate that the underlying functions $F$ and $G$ are fairly linear and the obtained models $f$ and $g$ are fairly good linear approximations. We optimize $F$ and $G$ by optimzing $f$ and $g$ respectively. As $F$ and $G$ are not not exactly linear and our obtained models $f$ and $g$ are linear approximations, the optimal values obtained from the models $f$ and $g$ will have some errors comparing to the optimal values of $F$ and $G$. We expect these errors to be similar to the errors of the models.
+
+\subsection{Optimzing the Linear model Using Linear Programming:}
+As both $f$ and $g$ are linear and all the inputs of both of the functions are positive, the optimization problems are most likely to be representable as a linear programming problem. The linear programming problem would involve $5$ variables. A linear programming problem with $5$ variables is a small instance of a linear programming problem. There exist efficient algorithms, namely, simplex, ellipsoid, etc. for solving linear programming problems. In practice, a linear programming problem can easily be solved by any standard linear programming solver like lp\_solve. Now we present the optimization problems discussed earlier as linear programming problems in the following subsections:
+
+Maximize $f - g$:
+We need to find values $x_1 = a_1,x_2 = a_2,x_3 = a_3,x_4 = a_4,x_5 = a_5$ so that $f(a_1,a_2,a_3,a_4,a_5)$ becomes as large as possible while making $g(a_1,a_2,a_3)$ as small as possible, i.e., we need to maximize
+	\begin{eqnarray}
+		& &f(x_1,x_2,x_3,x_4,x_5) - g(x_1,x_2,x_3) = -1.7897 \cdot x_1 \nonumber \\
+		& & - 3.9176 \cdot x_2 + 24.8859 \cdot x_3 - 3.2784 \cdot x_4  \nonumber \\
+		& & + 1.8231 \cdot x_5 + 53.8834
+	\end{eqnarray}
+Consequently the linear programming problem looks as follows
+	\begin{eqnarray*}
+		\text{max:} & & -1.7897 \cdot x_1 - 3.9176 \cdot x_2 + 24.8859 \cdot x_3 \nonumber \\
+		& &- 3.2784 \cdot x_4 + 1.8231 \cdot x_5 + 53.8834; \nonumber \\
+		& & x_1 <= 11; x_2 <= 6; x_3 <= 2.04; \nonumber \\
+		& & x_4 <= 11; x_5 <= 20; x_1 >= 2.5; \nonumber \\
+		& & x_2 >= 1.5; x_3 >= 1.25;  x_4 >= 4; \nonumber \\
+		& & x_5 >= 10; \nonumber\\
+	\end{eqnarray*}
+The above linear programming problem can be solved by saving the above problem in a file named \textsf{model.lp} (the file is attached) and run the command \textsf{lp\_solve model.lp} from the shell of an unix or unix like operating system. Here is the output:
+\begin{enumerate}
+	\item We get the maximum value of the objective function to be: $117.648$
+	\item The required values of the variables are $x_1 = 2.5,x_2 = 1.5,x_3 = 2.04, x_4 = 4, x_5 = 20$
+\end{enumerate}
+Feeding this input to $f$ and $g$ we find
+	\begin{eqnarray*}
+		f(2.5, 1.5, 2.04, 4,20) &=& 143.4855\\
+		g(2.5, 1.5, 2.04) &=& 26.3621
+	\end{eqnarray*}
+
+We can find the value of $F(2.5, 1.5, 2.04, 4,20)$ and $G(2.5, 1.5, 2.04)$ by running a simulation to see how good the optimization is.
+
+
+Minimize $\vert\frac{f}{g}-b\vert$: We need to find the values $x_1 = a_1$, $x_2 = a_2$, $x_3 = a_3$, $x_4 = a_4$, $x_5 = a_5$ so that $\frac{f(a_1,a_2,a_3,a_4,a_5)}{g(a_1,a_2,a_3,a_4,a_5)}$ becomes as close as possible to a certain constant $b$. Let us set $b=6$. Then we need to minimize $\frac{f(x_1,x_2,x_3,x_4,x_5)}{g(x_1,x_2,x_3)}-6$. In other words we need to minimize 
+	\begin{eqnarray*}
+		& & \vert f(x_1,x_2,x_3,x_4,x_5) - 6 g(x_1,x_2,x_3) \vert\\
+		&=& \vert 25.5953 \cdot x_1 - 27.4675 \cdot x_2 + 3.4358 \cdot x_3 - \nonumber \\
+		& & 3.2784 \cdot x_4 + 1.8231 \cdot x_5 - 67.8316 \vert
+	\end{eqnarray*}
+
+The above simplification can be done easily for a different value of $b$ than $6$. However, for $b=6$, the linear programming problem looks as follows. Note that a guest variable $X$ has been imported in the linear program because the objective function involves an absolute value.
+	\begin{eqnarray*}
+		& & \text{min: } X;\\
+		& & x_1 <= 11; x_2 <= 6; x_3 <= 2.04; \\
+		& & x_4 <= 11; x_5 <= 20; x_1 <= 2.5; \\
+		& & x_2 <= 1.5; x_3 <= 1.25; x_4 <= 4; \\
+		& & x_5 <= 10; \\
+		& & 25.5953 x_1 -  27.4675 x_2 + 3.4358 x_3 \\
+		& & - 3.2784 x_4 + 1.8231 x_5 - 67.8316 <= X; \\
+		& & -25.5953 x_1 +  27.4675 x_2 - 3.4358 x_3 + \\
+		& & 3.2784 x_4 - 1.8231 x_5 + 67.8316 <= X; \\
+	\end{eqnarray*}
+Here is the output of the linear program:
+\begin{enumerate}
+	\item We get the maximum value of the objective function to be: $0$
+	\item The required values of the variables are $x_1 = 3.89215,x_2 = 1.5,x_3 = 1.25, x_4 = 4, x_5 = 10$
+\end{enumerate}
+
+Feeding this input to $f$ and $g$ we find 
+	\begin{eqnarray*}
+		f(3.89215, 1.5, 1.25, 4,10) &=& 92.08919\\
+		g(3.89215, 1.5, 1.25) &=& 15.34819
+	\end{eqnarray*}
+We can find the value of $F(3.89215, 1.5, 1.25, 4,10)$ and $G(3.89215, 1.5, 1.25)$ by running a simulation to see how good the optimization is.
+
+Minimize $\vert f-d_1 \vert + \vert g-d_2 \vert$: Finding the values $x_1 = a_1,x_2 = a_2,x_3 = a_3,x_4 = a_4,x_5 = a_5$ so that $f(a_1,a_2,a_3,a_4,a_5)$ and $g(a_1,a_2,a_3)$  goes as close as possible to constant values $b_1$ and $b_2$ respectively. Let us set $b_1 = 121$ and $b_2 = 20.7$. We need to minimize
+	\begin{eqnarray*}
+		& &\vert f(x_1,x_2,x_3,x_4,x_5)-121 \vert + \vert g(x_1,x_2,x_3)-20.7 \vert \\ 
+		& = &  \vert -7.2667 \cdot x_1 + 0.3724 \cdot x_2 + 29.1759 \cdot x_3 \\
+		& &  - 3.2784 \cdot x_4 + 1.8231 \cdot x_5 - 42.7736 \vert \\
+		& & + \vert -5.477 \cdot x_1 + 4.640 \cdot x_2 + 4.290 \cdot x_3 + 3.643 \vert
+	\end{eqnarray*}
+The above simplification can be done easily for a different value of $b_1$ and $b_2$. However, for $b_1=121$ and $b_2 = 20.7$, the linear programming problem looks as follows. Note that two guest variables $X,Y$ has been imported in the linear program because the objective function involves absolute value.
+	\begin{eqnarray*}
+		& & \text{min: } X + Y;\\
+		& & x_1 <= 11; x_2 <= 6; x_3 <= 2.04; x_4 <= 11; x_5 <= 20; \\
+		& & x_1 >= 2.5; x_2 >= 1.5; 	x_3 >= 1.25; x_4 >= 4; x_5 >= 10;\\
+		& & -7.2667 x_1 + 0.3724 x_2 + 29.1759 x_3 \\
+		& & - 3.2784 x_4 + 1.8231 x_5 - 42.7736 <= X;\\
+		& & 7.2667 x_1 - 0.3724 x_2 - 29.1759 x_3 \\
+		& & + 3.2784 x_4 - 1.8231 x_5 + 42.7736 <= X;\\
+		& & -5.477 x_1 + 4.640 x_2 + 4.290 x_3 + 3.643 <= Y;\\
+		& & 5.477 x_1 - 4.640 x_2 - 4.290 x_3 - 3.643 <= Y;\\
+	\end{eqnarray*}
+Here is the output of the linear program:
+\begin{enumerate}
+	\item We get the maximum value of the objective function to be: $0$
+	\item The required values of the variables are $x_1 = 3.5338,x_2 = 1.5,x_3 = 2.04, x_4 = 4, x_5 = 11.787$
+\end{enumerate}
+Feeding this input to $f$ and $g$ we find
+	\begin{eqnarray*}
+		f(3.2077, 1, 1.25, 2.16454, 5) &=& 121.0001\\
+		g(3.2077, 1, 1.25) &=& 20.69998
+	\end{eqnarray*}
+We can find the value of $F(3.2077, 1, 1.25, 2.16454, 5)$ and $G(3.2077, 1, 1.25)$ by running an simulation to see how good the optimization is.
+
+\subsection{Evaluation:}
+The underlying functions $F$ and $G$ of the experiments are found to be fairly linear. Keeping this observation in mind, linear approximation $f$ and $g$ can be obtained by linear regression by using only $5$ experimental values. Because $5$ points in a $5$ dimensional space completely defines a $4$ dimensional hyperplane. So, the linear approximations $f$ and $g$ can be easily obtained. Using the linear approximations, the above method can be used to find the values of the variables $x_1,x_2,x_3,x_4,x_5$ i.e., \textit{W, S, D, GW, SG} to obtain the desired values of $y_1$ and $y_2$ i.e., \textit{Z$_{0o}$} and \textit{Z$_{0e}$}. 
+
+
 
 \section{Algorithmic Design of the Couplers Using CS-CPW}
 
@@ -578,7 +755,7 @@ Z_{0o}=Z_0 \sqrt{\frac{1-k}{1+k}}
 \end{figure}
 
 
-\textit{Step 2):} Once the design goal is determined, we have to make an initial guess of the geometric parameters for the EM simulation. A suitable initial guess of these parameters is critical since it will directly affect the total time required for the design task. As stated in the previous section that the behavior of the CS-CPW shown in Table I or the mathematical modeling approach described in the previous section can be used to predict the initial values of the geometric parameters.
+\textit{Step 2):} Once the design goal is determined, we have to make an initial guess of the geometric parameters for the EM simulation. A suitable initial guess of these parameters is critical since it will directly affect the total time required for the design task. As stated in the previous section that the behavior of the CS-CPW shown in Table \ref{table:mapping} or the mathematical modeling approach described in the previous section can be used to predict the initial values of the geometric parameters.
 
 \textit{Step 3):} An efficient EM simulation methodology is important to simulate the CS-CPW structure as the structure has five design variables. As a result, a high number of iterations may require to achieve the given design goal. Therefore, the modeling methodology of CS-CPW structure explained in the section II is proposed for designing the couplers. Since the structure has been modeled using the transmission line parameters [Pozar], the proposed CS-CPW model is scalable in terms of the length. Hence for designing a quadrature coupler, we do not need to simulate at the quarter wavelength of the line but a fractional length of the line. This will further reduce the simulation time. On the other hand, it is also important to check the complete coupler performances, i.e. through, coupling, isolation, and directivity at the quarter wavelength of the line. However, if we simulate the quarter wavelength of the line, we will not be able to extract the reliable line parameters due to the resonance effect. Therefore, the scalable line parameters obtained from the EM simulations are inserted to a built-in physical coupled line model (CLINP) from the microwave circuit simulator ADS [ADS] for the complete coupler simulations. 
 
@@ -594,9 +771,47 @@ Z_{0o}=Z_0 \sqrt{\frac{1-k}{1+k}}
 
 
 \section{E- to W-band coupler design example}
-The proposed algorithm for designing CS-CPW based coupler was the basis of this design example. The design example had considered a 3-dB quadrature coupler which covers the entire E- and W-band. For a 3-dB quadrature coupler, the voltage coupling coefficient, \textit{k} is calculated to be 0.708. Hence, by using the Eq. 1 and 2, the odd- and even-mode impedances become Z$_{0o}$ = 20.67 $\Omega$, and Z$_{0e}$ = 120.9 $\Omega$ for a 50 $\Omega$ system. As mentioned in the design algorithm, the initial design parameters for the EM simulations can be estimated from the Table I or the mathematical model. In this work, we had experimented both types of approaches. The experimental data obtained during the behavior analysis of the CS-CPW were used for the mathematical modeling and the design rules from the technology were applied for the boundary conditions. The design parameters estimated from the both approaches and their possible outcomes are tabulated in Table II. Implementable physical dimensions from the estimated values were used for the corresponding EM simulations. Because of the required values of Z$_{0o}$ and Z$_{0e}$, the CS-CPW structure shown in Fig. \ref{tech_cross} was preferred in the initial design phase. A fractional line length of 110 $\mu$m was considered for the EM simulations.
+The proposed algorithm for designing CS-CPW based coupler was the basis of this design example. The design example had considered a 3-dB quadrature coupler which covers the entire E- and W-band. For a 3-dB quadrature coupler, the voltage coupling coefficient, \textit{k} is calculated to be 0.708. Hence, by using the Eq. 1 and 2, the odd- and even-mode impedances become Z$_{0o}$ = 20.67 $\Omega$, and Z$_{0e}$ = 120.9 $\Omega$ for a 50 $\Omega$ system. As mentioned in the design algorithm, the initial design parameters for the EM simulations can be estimated from the Table \ref{table:mapping} or the mathematical model. In this work, we had experimented both types of approaches. The experimental data obtained during the behavior analysis of the CS-CPW were used for the mathematical modeling and the design rules from the technology were applied for the boundary conditions. The design parameters estimated from the both approaches and their possible outcomes are tabulated in Table \ref{table:simulation}. Implementable physical dimensions from the estimated values were used for the corresponding EM simulations. Because of the required values of Z$_{0o}$ and Z$_{0e}$, the CS-CPW structure shown in Fig. \ref{tech_cross} was preferred in the initial design phase. A fractional line length of 110 $\mu$m was considered for the EM simulations.
 
-It can be seen from the Table II that the EM simulations using the design parameters obtained from the mathematical model had given better coupling coefficient. Therefore, these design parameters were used as initial values for the optimization iterations. However, EM simulations results using the values speculated from the behavioral table were also close to the design goal. The required coupling coefficient was achieved with single iteration; but the exact value of Z$_{0o}$ and Z$_{0e}$ could not be obtained. Note that this solution will sacrifice input match for coupling, as the port impedance is defined by,  $Z_{0} = \sqrt{Z_{0o}Z_{0e}}$ and that is $\sim$55 $\Omega$ . Nevertheless, we had drawn the layout of the coupler structure with these geometric parameters in the CMOS technology. However, the layout experienced metal density errors. In order to fulfill the metal density requirement, we had placed all the metal layers down to the shielding metal plane under the even-mode ground paths as shown in Fig. \ref{GCPW}. However, this modification had large impact on even-mode line parameters, as was expected (even-mode return current paths are defined to the side-ground lines). In contrast, the even-mode slow-wave effect was increased significantly which had reduced the required coupler length. Simulation data showing these effects are also included in the Table II.
+\begin{table*}
+	\centering
+	\caption{EM Simulated odd- and even-mode Line Parameters $@90$ GHz for Different Geometric Parameters}
+	\label{table:simulation} %take care
+	\begin{tabular}
+	%	{|m{3.4cm}|m{.37cm}|m{.37cm}|m{.37cm}|m{.37cm}|m{.37cm}|m{.6cm}|m{.6cm}|m{.37cm}|m{.37cm}|m{.6cm}|m{.65cm}|m{.65cm}|m{1.7cm}| }
+		{|l|c|c|c|c|c|c|c|c|c|c|c|c|c| }
+		\hline
+		\multirow{2}{*}{Simulation scenario} & \multicolumn{5}{|c|}{Design parameter ($\mu$m)} & \multirow{1}{*}{\textit{Z$_{0o}$}} & \multirow{1}{*}{\textit{Z$_{0e}$}} & \multirow{2}{*}{\textit{k}} & \multirow{2}{*}{$\varepsilon$$_{ro}$} & \multirow{2}{*}{$\varepsilon$$_{re}$} & \multirow{1}{*}{$\alpha$$_o$} & \multirow{1}{*}{$\alpha$$_e$} & Complete coupler length  \\  \cline{2-6}
+		& \textit{W} & \textit{S} & \textit{D} & \textit{GW} & \textit{SG} & $(\Omega)$ & $(\Omega)$ &  &  &  & (dB/m) & (dB/m) & ($\mu$m)\\ %take care, change these headings accordingly.
+		\hline
+		Estimated model from Table \ref{table:mapping} & $6$ & $1.5$  & $1.6$ & $10$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$\\
+		\hline
+		EM Simulated model & $6$ & $1.5$  & $1.66$ & $10$ & $15$ & $20.38$ & $97$ & $0.65$ & $6$ & $9.52$ & $-$ & $-$ & $-$ \\
+		\hline
+		Mathematical model & $3.53$ & $1.5$  & $2.04$ & $4$ & $11.8$ & $20.7$ & $121$ & $0.71$ & $-$ & $-$ & $-$ & $-$ & $-$ \\
+		\hline
+		EM Simulated model & $3.5$ & $1.5$  & $2.04$ & $4$ & $12$ & $23.4$ & $130.5$ & $0.69$ & $5.1$ & $6.3$ & $1600$ & $615$ & $333$\\
+		\hline
+		EM simulation iteration: $1$ & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $133$ & $0.7$ & $5.5$ & $5.56$ & $1860$ & $600$ & $340$\\
+		\hline
+		EM simulation iteration: $2^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $86.25$ & $0.58$ & $5.5$ & $13.25$ & $1860$ & $670$ & $275$\\
+		\hline
+		EM simulation iteration: $3^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $22.9$ & $91.68$ & $0.6$ & $5.5$ & $14.8$ & $1860$ & $700$ & $260$\\ 
+		\hline
+		EM simulation iteration: $4^\dagger$ &  $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $12.7$ & $93.45$ & $0.76$ & $23.8$ & $15.35$ & $4760$ & $800$ & $180$\\
+		\hline
+		EM simulation iteration: $5^\dagger$ &  $2.5$ & $1.5$  & $2.04$ & $4$ & $20$ & $15.76$ & $109$ & $0.75$ & $18.6$ & $13.1$ & $4760$ & $865$ & $200$\\
+		\hline
+		EM simulation iteration: $6^\dagger$ &  $2.5$ & $1.5$  & $1.57$ & $4$ & $20$ & $16.73$ & $105.7$ & $0.73$ & $17.5$ & $13.6$ & $4600$ & $1240$ & $205$\\
+		\hline
+		\multicolumn{14}{l}{$*$presence of all the metal layers under the even-mode ground paths} \\
+		\multicolumn{14}{l}{$\dagger$with special structure}
+	\end{tabular}
+		
+\end{table*}
+
+
+It can be seen from the Table \ref{table:simulation} that the EM simulations using the design parameters obtained from the mathematical model had given better coupling coefficient. Therefore, these design parameters were used as initial values for the optimization iterations. However, EM simulations results using the values speculated from the behavioral table were also close to the design goal. The required coupling coefficient was achieved with single iteration; but the exact value of Z$_{0o}$ and Z$_{0e}$ could not be obtained. Note that this solution will sacrifice input match for coupling, as the port impedance is defined by,  $Z_{0} = \sqrt{Z_{0o}Z_{0e}}$ and that is $\sim$55 $\Omega$ . Nevertheless, we had drawn the layout of the coupler structure with these geometric parameters in the CMOS technology. However, the layout experienced metal density errors. In order to fulfill the metal density requirement, we had placed all the metal layers down to the shielding metal plane under the even-mode ground paths as shown in Fig. \ref{GCPW}. However, this modification had large impact on even-mode line parameters, as was expected (even-mode return current paths are defined to the side-ground lines). In contrast, the even-mode slow-wave effect was increased significantly which had reduced the required coupler length. Simulation data showing these effects are also included in the Table \ref{table:simulation}.
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{CS-CPW_modified.png}
@@ -612,9 +827,35 @@ It can be seen from the Table II that the EM simulations using the design parame
 
 
 Due to the technology specific design rules constrain, the required coupling coefficient cannot be achieved with the straight forward CS-CPW structure shown in Fig. \ref{GCPW}. Therefore, we had applied an engineering approach to obtain the design goal by introducing a special structure. While approaching to this particular structure, two things were considered. First, it was obvious that there were little room left to tune the even-mode line parameters, and second, the odd-mode slow-wave effect was less. Hence, we had modified the top most metal layer of the signal lines and created slabs for gaining strong capacitive coupling in odd-mode propagation as shown in Fig. \ref{special_structure}. The new CS-CPW structure had provided high odd-mode effective dielectric constant and significantly lowered the odd-mode impedance while the changes in even-mode parameters were less prominent. The odd- and even-mode line parameters for this modified structure are also included in the Table II. The structure was built such a way that the CS-CPW remains scalable. We had considered the structure block as a unit cell so that the complete coupler structure can be made by repeating the number of
-required unit cells. In order to validate the scalability of the modified structure, we have simulated the structure with different number of unit cells and observe the effects on line parameters. It is understandable from Fig. 9 that the effect of repeating the unit cells on the line parameters are negligible hence the proposed structure is scalable.
+required unit cells. In order to validate the scalability of the modified structure, we have simulated the structure with different number of unit cells and observe the effects on line parameters. It is understandable from Table III that the effect of repeating the unit cells on the line parameters are negligible hence the proposed structure is scalable.
 
-Finally, the through port of the coupler was folded to its coupled port side for obtaining the in-phase and quadrature ports to the same side. The final geometric dimensions of the CS-CPW became \textit{W} = 2.5 $\mu$m, \textit{S} = 1.5 $\mu$m, \textit{D} = 1.54 $\mu$m (Metal 3), \textit{SG} = 19.75 $\mu$m, \textit{GW} = 5 $\mu$m. With these geometric dimensions the required metal density requirements needed for the circuit fabrication were fulfilled expect for the metal 5 and 4. Therefore, extra metal plates on these two layers were placed and they had negligible effects on the line parameters. The final simulation structure in 3D view is shown in Fig. \ref{3D_full} and the corresponding complete coupler performances are shown in Fig. \ref{simulated_results}. From Fig. \ref{simulated_results}, it can be seen that the coupler has an insertion loss of -3.5 dB at the coupling and through ports, 18 dB of isolation, a less than 2$^\circ$ phase variations and a good matching over a wide bandwidth from 55 GHz to 110 GHz. The simulation results indicate that the coupler is critically-coupled even though the simulated coupling coefficient (\textit{k} = 0.73) should give over-coupled performance. However, the results are expected as the loss was compensated by the extra coupling.  
+\begin{table*}[]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\resizebox{\textwidth}{!}{%
+			\begin{tabular}{@{}|ccccccccc|@{}}
+			\toprule
+			\multicolumn{9}{|c|}{\textbf{Odd-mode line parameters}}                                                                                                                                                                                                 \\ \midrule
+			No. of                  & Corresponding              \textit{R$_{odd}$}   & \textit{L$_{odd}$}    & \textit{C$_{odd}$}    & \textit{G$_{odd}$}    & \textit{Z$_{0o}$}   & \textit{$\epsilon$$_{ro}$}  & \textit{$\alpha$$_{o}$}      \\
+			unit cell               & Length ($\mu$m)   & ($\Omega$/mm) & (pH/mm) & (fF/mm) & (S/mm)   & ($\Omega$)   &       & (dB/mm) \\  \midrule
+			\multicolumn{1}{|c|}{4} & \multicolumn{1}{c|}{95.5}  & \multicolumn{1}{c|}{14}    & \multicolumn{1}{c|}{206.5} & \multicolumn{1}{c|}{1283} & \multicolumn{1}{c|}{0.002}    & \multicolumn{1}{c|}{12.7}  & \multicolumn{1}{c|}{23.8}  & 4.76    \\ \midrule
+			\multicolumn{1}{|c|}{6} & \multicolumn{1}{c|}{141.5} & \multicolumn{1}{c|}{14.1}  & \multicolumn{1}{c|}{205.1} & \multicolumn{1}{c|}{1305} & \multicolumn{1}{c|}{0.004}    & \multicolumn{1}{c|}{12.6}  & \multicolumn{1}{c|}{24}    & 4.86    \\ \midrule
+			\multicolumn{1}{|c|}{8} & \multicolumn{1}{c|}{187.5} & \multicolumn{1}{c|}{14.1}  & \multicolumn{1}{c|}{205}   & \multicolumn{1}{c|}{1320} & \multicolumn{1}{c|}{0.006}    & \multicolumn{1}{c|}{12.6}  & \multicolumn{1}{c|}{24.3}  & 4.88    \\ \midrule
+			\multicolumn{9}{|c|}{\textbf{Even-mode line parameters}}                                                                                                                                                                                                \\ \midrule
+			No. of                  & Corresponding              & \textit{R$_{even}$}   & \textit{L$_{even}$}    & \textit{C$_{even}$}    & \textit{G$_{even}$}    & \textit{Z$_{0e}$}   & \textit{$\epsilon$$_{re}$}  & \textit{$\alpha$$_{e}$}       \\ 
+			unit cell               & Length ($\mu$m)   & ($\Omega$/mm) & (pH/mm) & (pH/mm) & (S/mm)   & ($\Omega$)   &       & (dB/mm) \\ \midrule
+			\multicolumn{1}{|c|}{4} & \multicolumn{1}{c|}{95.5}  & \multicolumn{1}{c|}{18.1}  & \multicolumn{1}{c|}{1221}  & \multicolumn{1}{c|}{139}  & \multicolumn{1}{c|}{0.0001}   & \multicolumn{1}{c|}{93.45} & \multicolumn{1}{c|}{15.35} & 0.795   \\ \midrule
+			\multicolumn{1}{|c|}{6} & \multicolumn{1}{c|}{141.5} & \multicolumn{1}{c|}{18}    & \multicolumn{1}{c|}{1220}  & \multicolumn{1}{c|}{139}  & \multicolumn{1}{c|}{0.0001}   & \multicolumn{1}{c|}{93.75} & \multicolumn{1}{c|}{15.22} & 0.795   \\ \midrule
+			\multicolumn{1}{|c|}{8} & \multicolumn{1}{c|}{187.5} & \multicolumn{1}{c|}{18.03} & \multicolumn{1}{c|}{1220}  & \multicolumn{1}{c|}{139}  & \multicolumn{1}{c|}{1.15E-04} & \multicolumn{1}{c|}{93.7}  & \multicolumn{1}{c|}{15.24} & 0.883   \\ \bottomrule
+		\end{tabular}%
+	}
+
+\end{table*}
+
+
+
+Finally, the through port of the coupler was folded to its coupled port side for obtaining the in-phase and quadrature ports to the same side. The final geometric dimensions of the CS-CPW became \textit{W} = 2.5 $\mu$m, \textit{S} = 1.5 $\mu$m, \textit{D} = 1.54 $\mu$m (Metal 3), \textit{SG} = 19.75 $\mu$m, \textit{GW} = 5 $\mu$m. With these geometric dimensions the required metal density requirements needed for the circuit fabrication were fulfilled expect for the metal 5 and 4. Therefore, extra metal plates on these two layers were placed and they had negligible effects on the line parameters. The final simulation structure in 3D view is shown in Fig. \ref{3D_full}. The scalable line parameters obtained from the EM simulations are then used to predict the complete coupler performances and are shown in Fig. \ref{simulated_results}. From Fig. \ref{simulated_results}, it can be seen that the coupler has an insertion loss of -3.5 dB at the coupling and through ports at 90 GHz, 18 dB of isolation, a less than 4$^\circ$ phase variations and a good matching over a wide bandwidth from 55 GHz to 110 GHz. It is noteworthy to observe that the coupler is critically-coupled even though the obtained coupling coefficient (\textit{k} = 0.73) should give over-coupled performance. However, the simulation results were expected as the line loss was compensated by this extra coupling.   
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{3D_figure_coupler_v1.png}
@@ -624,7 +865,7 @@ Finally, the through port of the coupler was folded to its coupled port side for
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{coupler_simulation2.png}
-	\caption{Simulated S-parameters and phase difference between the ports for E- to W-band quadrature coupler based on CS-CPW structure.}
+	\caption{Simulated \textit{S}-parameters and phase difference between the through and coupled ports for the quadrature coupler.}
 	\label{simulated_results}
 \end{figure}
 
@@ -642,7 +883,7 @@ that is because of the realized odd- and even-mode impedances were different tha
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{Measured_deembed_coupler2.png}
-	\caption{Measured (dotted) and simulated (solid) coupler performance.}
+	\caption{Measured \textit{S}-parameters and simulated and measured amplitude and phase errors for the E- to W- band coupler.}
 	\label{measurement1}
 \end{figure}
 
@@ -655,6 +896,30 @@ coupler and fabricated two more structures as for the other case. For the matchi
 	\label{measurement2}
 \end{figure}
 
+
+\begin{table*}
+	\caption{State-of- the-Art Performance of mm-wave 3-dB Quadrature Couplers on Silicon Technology}
+	\label{table:technology} %take care
+	\begin{tabular}{ |p{1.6cm}|p{1.7cm}|p{2.1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1.2cm}| }
+		\hline
+		Ref & Topology  & Technology & Frequency (GHz) & Insertion loss (dB) & Coupling (dB) & Return loss (dB) & $\pm$1 dB BW (GHz) & $\pm$ 5 BW (GHz) & Size(mm$^2$) \\ %take care, is there a degree sigin on plus minus 5?
+		\hline
+		\textbf{This work} & \textbf{CP-SW}  & \textbf{65-nm CMOS} & \textbf{90} & \textbf{3.5}  &  \textbf{4.4} & \textbf{$>$ 18} & \textbf{55} & \textbf{$>$ 60}  & \textbf{0.0115}\\ %take care, change these headings accordingly.
+		\hline
+		[Floyd.IMS] & Lange coipler & 130-nm BiCMOS  & 60 & 4 & 5 & 20 & $-$ & $21^*$ & 0.048\\ %take care, maybe you would like to cite in the ref column
+		\hline
+		[Floyd.IMS] & Lange coipler/ meandering & 130-nm BiCMOS  & 60 & 4 & 5 & 15 & $-$ & $19^*$ & 0.0192\\ %take care, maybe you would like to cite in the ref column
+		\hline
+		[D.Titz] & MBLC & 130-nm BiCMOS  & 70 & $-$ & $5.4$ & $8.5$ & $5$ & $9$ & $0.239$\\ %take care, maybe you would like to cite in the ref column
+		\hline
+		[D.Titz] & QLQC & 130-nm BiCMOS  & 62 & $-$ & 4.1 & 12.7 & 4 & 10.5 & 0.029\\ %take care, maybe you would like to cite in the ref column 
+		\hline
+		[EC.CPW] & EC-CPW & 90-nm CMOS  & 62 & 4.8 & 5.5 & 22 & $\sim 6.5$ & $\sim 9$ & $0.102$\\ %take care, maybe you would like to cite in the ref column
+		\hline
+		[Ferrari.Thesis] & CP-SW & 55-nm BiCMOS  & 60 & $3.3^+$ & $3.5^+$ & $29^+$ & $-$ & $-$ & $.069$\\ %take care, maybe you would like to cite in the ref column
+		\hline
+	\end{tabular}
+\end{table*}
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
@@ -731,7 +996,7 @@ coupler and fabricated two more structures as for the other case. For the matchi
 %% than the plain LaTeX2e tabular which is used here.
 %\begin{tabular}{|c||c|}
 %\hline
-%One & Two\\XXX
+%One & Two\\
 %\hline
 %Three & Four\\
 %\hline
@@ -749,83 +1014,8 @@ coupler and fabricated two more structures as for the other case. For the matchi
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
 
-\begin{table}
-\caption{Mapping table to observe the variation of , , , , , and vs. geometrical parameter changes}
-\label{table:mapping} %take care
-\begin{tabular}{ |p{3.2cm}||p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}| }
- \hline
- \multirow{2}{*}{Geometrical parameter} & \multicolumn{6}{|c|}{Output} \\  \cline{2-7}
-  & ?? & ?? & ?? & ?? & ?? & ?? \\ %take care, change these headings accordingly.
- \hline
-  W $\uparrow$ & $\downarrow$  & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
- \hline
-  S $\uparrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ \\
-  \hline
-  D $\uparrow$ & $\updownarrow$ & $\updownarrow$ & $\downarrow$ & $\downarrow$ & $\uparrow$ & $\uparrow$\\
- \hline
-  SG $\uparrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$ & $\uparrow$ & $\updownarrow$\\
- \hline
-  GA $\uparrow$ & $\downarrow$  & $\updownarrow$ & $\uparrow$ & $\updownarrow$ & $\downarrow$ & $\updownarrow$\\
- \hline
-\end{tabular}
-\end{table}
-
-\begin{table*}
-\caption{EM simulated odd- and even-mode line parameters $@90$ GHz for different geometric
-parameters}
-\label{table:simulation} %take care
-\begin{tabular}{ |p{3.4cm}||p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.37cm}|p{.6cm}|p{.6cm}|p{.37cm}|p{.37cm}|p{.6cm}|p{.65cm}|p{.65cm}|p{1.7cm}| }
- \hline
- \multirow{2}{*}{Simulation scenario} & \multicolumn{5}{|c|}{Design parameter} & \multirow{2}{*}{$(\Omega)$} & \multirow{2}{*}{$(\Omega)$} & & & & \multirow{2}{*}{(dB/m)} & \multirow{2}{*}{(dB/m)} & Complete coupler length  \\  \cline{2-6}
-  &  &  &  &  &  &  &  &  &  &  &  &  & ($\mu$m)\\ %take care, change these headings accordingly.
- \hline
-  Estimated model from Table \ref{table:mapping} & $6$ & $1.5$  & $1.6$ & $10$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$ & $-$\\
- \hline
-  EM Simulated model & $6$ & $1.5$  & $1.66$ & $10$ & $15$ & $20.38$ & $97$ & $0.65$ & $6$ & $9.52$ & & & \\
- \hline
-  Mathematical model & $3.53$ & $1.5$  & $2.04$ & $4$ & $11.8$ & $20.7$ & $121$ & $0.71$ & $-$ & $-$ & $-$ & $-$ & $-$ \\
- \hline
-  EM Simulated model & $3.5$ & $1.5$  & $2.04$ & $4$ & $12$ & $23.4$ & $130.5$ & $0.69$ & $5.1$ & $6.3$ & $1600$ & $615$ & $333$\\
- \hline
-  EM simulation iteration:1 & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $133$ & $0.7$ & $5.5$ & $5.56$ & $1860$ & $600$ & $340$\\
- \hline
-  EM simulation iteration:$2^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $15$ & $22.9$ & $86.25$ & $0.58$ & $5.5$ & $13.25$ & $1860$ & $670$ & $275$\\
- \hline
-   EM simulation iteration:$3^*$ & $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $22.9$ & $91.68$ & $0.6$ & $5.5$ & $14.8$ & $1860$ & $700$ & $260$\\ 
- \hline
-   EM simulation iteration:$4^\dagger$ &  $4$ & $1.5$  & $2.04$ & $4$ & $20$ & $12.7$ & $93.45$ & $0.76$ & $23.8$ & $15.35$ & $4760$ & $800$ & $180$\\
- \hline
-   EM simulation iteration:$5^\dagger$ &  $2.5$ & $1.5$  & $2.04$ & $4$ & $20$ & $15.76$ & $109$ & $0.75$ & $18.6$ & $13.1$ & $4760$ & $865$ & $200$\\
- \hline
-   EM simulation iteration:$6^\dagger$ &  $2.5$ & $1.5$  & $1.57$ & $4$ & $20$ & $16.73$ & $105.7$ & $0.73$ & $17.5$ & $13.6$ & $4600$ & $1240$ & $205$\\
- \hline
-\end{tabular}
-\end{table*}
 
 
-\begin{table*}
-\caption{State-of- the-Art performance of mm-wave 3-dB Quadrature couplers on Silicon Technology}
-\label{table:technology} %take care
-\begin{tabular}{ |p{1.6cm}||p{1.7cm}|p{2.1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1.2cm}| }
- \hline
- Ref & Topology  & Technology & Frequency (GHz) & Insertion loss (dB) & Coupling (dB) & Return loss (dB) & $\pm$1 dB BW (GHz) & $\pm$ 5 BW (GHz) & Size(mm$^2$) \\ %take care, is there a degree sigin on plus minus 5?
- \hline
-  \textbf{This work} & \textbf{CP-SW}  & \textbf{65-nm CMOS} & \textbf{90} & \textbf{3.5}  &  \textbf{4.4} & \textbf{$>$ 18} & \textbf{55} & \textbf{$>$ 60}  & \textbf{0.0115}\\ %take care, change these headings accordingly.
- \hline
-  [Floyd.IMS] & Lange coipler & 130-nm BiCMOS  & 60 & 4 & 5 & 20 & $-$ & $21^*$ & 0.048\\ %take care, maybe you would like to cite in the ref column
- \hline
-  [Floyd.IMS] & Lange coipler/ meandering & 130-nm BiCMOS  & 60 & 4 & 5 & 15 & $-$ & $19^*$ & 0.0192\\ %take care, maybe you would like to cite in the ref column
- \hline
-  [D.Titz] & MBLC & 130-nm BiCMOS  & 70 & $-$ & $5.4$ & $8.5$ & $5$ & $9$ & $0.239$\\ %take care, maybe you would like to cite in the ref column
- \hline
-  [D.Titz] & QLQC & 130-nm BiCMOS  & 62 & $-$ & 4.1 & 12.7 & 4 & 10.5 & 0.029\\ %take care, maybe you would like to cite in the ref column 
- \hline
-  [EC.CPW] & EC-CPW & 90-nm CMOS  & 62 & 4.8 & 5.5 & 22 & $\sim 6.5$ & $\sim 9$ & $0.102$\\ %take care, maybe you would like to cite in the ref column
- \hline
-  [Ferrari.Thesis] & CP-SW & 55-nm BiCMOS  & 60 & $3.3^+$ & $3.5^+$ & $29^+$ & $-$ & $-$ & $.069$\\ %take care, maybe you would like to cite in the ref column
- \hline
-\end{tabular}
-\end{table*}
 
 \section{Conclusion}
 An algorithmic design methodology was developed for mm-wave CS-CPW based silicon couplers. Besides, an experiment on the behavior of the CS-CPW structure had performed and a design map has been created for improving the design efficiency. Based on the proposed design algorithm and the design map, a 3-dB quadrature coupler covering the whole E- to W-band has been successfully demonstrated in a 65-nm CMOS technology. The state-of-the-art results published for the 3-dB quadrature couplers realized on monolithic silicon technologies are shown in Table III. The presented results show excellent wideband coupler performances. A size reduction of about 50$\%$ compared to the conventional microstrip based quadrature couplers is achieved. Moreover, the good
