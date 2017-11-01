@@ -1,0 +1,9 @@
+the value of n is: 128
+R_hat of x1: 1.07616794013
+R_hat of x2: 1.06899596088
+R_hat:1.07616794013
+program is ending.
+The square root of the mean of (x1-1)**2 is:
+26.7845013698
+The square root of the mean of (x2-1)**2 is:
+28.5619340955
